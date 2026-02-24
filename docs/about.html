@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Growmark — by Growistan Venture</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Manrope:wght@400;500;600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: {
+        colors: { gold:'#F4B400','gold-lt':'#FFD34D',navy:'#0B3C5D','navy-md':'#1F5A7A',graphite:'#1C1C1C','soft-bg':'#F5F7FA',slate:'#D9DEE7' },
+        fontFamily: { sora:['Sora','sans-serif'], poppins:['Poppins','sans-serif'], manrope:['Manrope','sans-serif'] }
+      }}
+    }
+  </script>
+  <style>
+    body { font-family:'Manrope',sans-serif; }
+    .hero-gradient { background: linear-gradient(135deg,#0B3C5D 0%,#0B3C5D 45%,#1F5A7A 80%,#0d4a73 100%); }
+    .nav-link { transition:color 0.18s; }
+    .nav-link:hover { color:#F4B400; }
+    .btn-gold { background:#F4B400; color:#0B3C5D; border-radius:12px; font-family:'Poppins',sans-serif; font-weight:600; transition:background 0.18s,box-shadow 0.18s; }
+    .btn-gold:hover { background:#FFD34D; box-shadow:0 6px 20px rgba(244,180,0,0.4); }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col bg-soft-bg text-graphite">
+
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate shadow-sm">
+  <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+    <a href="./index.html" class="flex items-center gap-1 no-underline">
+      <span class="font-sora font-extrabold text-xl tracking-tight text-navy">GROW</span><span class="font-sora font-extrabold text-xl tracking-tight text-gold">MARK</span>
+      <span class="hidden sm:inline text-xs text-navy-md bg-soft-bg border border-slate px-2 py-0.5 rounded-full ml-2">by Growistan</span>
+    </a>
+    <nav class="flex items-center gap-1 md:gap-2">
+      <a href="./about.html"   class="nav-link hidden md:inline text-sm font-medium text-navy px-3 py-2">About</a>
+      <a href="./help.html"    class="nav-link hidden md:inline text-sm font-medium text-graphite px-3 py-2">Help</a>
+      <a href="./contact.html" class="nav-link hidden md:inline text-sm font-medium text-graphite px-3 py-2">Contact</a>
+      <a href="./index.html"   class="btn-gold text-sm px-4 py-2 ml-2">Use Tool</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero-gradient text-white py-16 px-4">
+  <div class="max-w-3xl mx-auto text-center">
+    <p class="text-gold font-poppins font-semibold text-sm tracking-widest uppercase mb-3">About Us</p>
+    <h1 class="font-sora font-extrabold text-4xl md:text-5xl mb-4">The story behind <span class="text-gold">Growmark</span></h1>
+    <p class="text-white/70 font-manrope text-lg">Built by Growistan Venture — a technology studio focused on practical, privacy-first tools.</p>
+  </div>
+</section>
+
+<main class="flex-grow max-w-4xl mx-auto px-4 py-16 w-full">
+  <div class="space-y-12">
+    <div class="bg-white rounded-2xl border border-slate shadow-sm p-8 md:p-10">
+      <h2 class="font-sora font-bold text-navy text-2xl mb-4">What is Growmark?</h2>
+      <p class="text-graphite/80 font-manrope leading-relaxed mb-4">
+        Growmark is a professional-grade AI watermark removal tool developed by <strong>Growistan Venture</strong>. It uses a mathematically precise technique called <em>reverse alpha-blending</em> to recover original pixels that have been overlaid by Gemini AI's watermark system.
+      </p>
+      <p class="text-graphite/80 font-manrope leading-relaxed">
+        Unlike competing tools that rely on inpainting or generative models to guess what's beneath, Growmark uses the exact inverse of the compositing formula — which means results are deterministic, pixel-accurate, and lossless.
+      </p>
+    </div>
+
+    <div class="bg-white rounded-2xl border border-slate shadow-sm p-8 md:p-10">
+      <h2 class="font-sora font-bold text-navy text-2xl mb-4">Our Mission</h2>
+      <p class="text-graphite/80 font-manrope leading-relaxed mb-4">
+        At Growistan Venture, we build tools that put users in control. Growmark was built on a simple belief: <strong class="text-navy">your images should stay private</strong>. That's why Growmark runs entirely inside your browser — no server, no cloud, no data collection.
+      </p>
+      <p class="text-graphite/80 font-manrope leading-relaxed">
+        We're committed to providing professional-quality utilities for free — no ads, no subscriptions, no hidden fees.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="bg-soft-bg border border-slate rounded-xl p-6 text-center">
+        <p class="font-sora font-bold text-gold text-3xl mb-1">100%</p>
+        <p class="font-poppins font-medium text-navy text-sm">Browser-Based</p>
+      </div>
+      <div class="bg-soft-bg border border-slate rounded-xl p-6 text-center">
+        <p class="font-sora font-bold text-navy text-3xl mb-1">0</p>
+        <p class="font-poppins font-medium text-navy text-sm">Data Uploaded</p>
+      </div>
+      <div class="bg-soft-bg border border-slate rounded-xl p-6 text-center">
+        <p class="font-sora font-bold text-gold text-3xl mb-1">∞</p>
+        <p class="font-poppins font-medium text-navy text-sm">Free to Use</p>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-2xl border border-slate shadow-sm p-8 md:p-10">
+      <h2 class="font-sora font-bold text-navy text-2xl mb-4">About Growistan Venture</h2>
+      <p class="text-graphite/80 font-manrope leading-relaxed mb-4">
+        Growistan Venture is a technology studio that designs and develops software products focused on productivity, privacy, and performance. We build tools that empower creators, marketers, and professionals with technology that works for them.
+      </p>
+      <p class="text-graphite/80 font-manrope leading-relaxed">
+        Growmark is our flagship open utility product — a demonstration of what modern browser capabilities can achieve when paired with well-researched algorithms.
+      </p>
+    </div>
+  </div>
+
+  <div class="mt-12 text-center">
+    <a href="./index.html" class="btn-gold inline-flex items-center gap-2 px-8 py-4 text-sm">
+      Try Growmark Free →
+    </a>
+  </div>
+</main>
+
+<footer class="bg-navy text-white py-8 px-4 mt-auto">
+  <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+    <div class="flex items-baseline gap-0"><span class="font-sora font-extrabold text-lg text-white">GROW</span><span class="font-sora font-extrabold text-lg text-gold">MARK</span></div>
+    <div class="flex gap-5 text-sm text-white/50 font-manrope">
+      <a href="./terms.html"   class="hover:text-gold transition-colors">Terms</a>
+      <a href="./privacy.html" class="hover:text-gold transition-colors">Privacy</a>
+      <a href="./contact.html" class="hover:text-gold transition-colors">Contact</a>
+    </div>
+    <p class="text-white/30 text-sm font-manrope">© 2025 Growistan Venture</p>
+  </div>
+</footer>
+</body>
+</html>

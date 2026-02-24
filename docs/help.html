@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Help & Documentation — Growmark</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Manrope:wght@400;500;600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={theme:{extend:{colors:{gold:'#F4B400',navy:'#0B3C5D','navy-md':'#1F5A7A',graphite:'#1C1C1C','soft-bg':'#F5F7FA',slate:'#D9DEE7'},fontFamily:{sora:['Sora','sans-serif'],poppins:['Poppins','sans-serif'],manrope:['Manrope','sans-serif']}}}}</script>
+  <style>
+    body{font-family:'Manrope',sans-serif;}
+    .hero-gradient{background:linear-gradient(135deg,#0B3C5D 0%,#0B3C5D 45%,#1F5A7A 80%,#0d4a73 100%);}
+    .nav-link{transition:color 0.18s;} .nav-link:hover{color:#F4B400;}
+    .btn-gold{background:#F4B400;color:#0B3C5D;border-radius:12px;font-family:'Poppins',sans-serif;font-weight:600;transition:background 0.18s;}
+    .btn-gold:hover{background:#FFD34D;}
+    details>summary{cursor:pointer;list-style:none;} details>summary::-webkit-details-marker{display:none;}
+    details[open] .chevron{transform:rotate(180deg);}
+    .chevron{transition:transform 0.2s;}
+  </style>
+</head>
+<body class="min-h-screen flex flex-col bg-soft-bg text-graphite">
+
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate shadow-sm">
+  <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+    <a href="./index.html" class="flex items-center gap-1 no-underline">
+      <span class="font-sora font-extrabold text-xl tracking-tight text-navy">GROW</span><span class="font-sora font-extrabold text-xl tracking-tight text-gold">MARK</span>
+    </a>
+    <nav class="flex items-center gap-1 md:gap-2">
+      <a href="./about.html"   class="nav-link hidden md:inline text-sm font-medium text-graphite px-3 py-2">About</a>
+      <a href="./help.html"    class="nav-link hidden md:inline text-sm font-medium text-navy px-3 py-2">Help</a>
+      <a href="./contact.html" class="nav-link hidden md:inline text-sm font-medium text-graphite px-3 py-2">Contact</a>
+      <a href="./index.html"   class="btn-gold text-sm px-4 py-2 ml-2">Use Tool</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero-gradient text-white py-16 px-4">
+  <div class="max-w-3xl mx-auto text-center">
+    <p class="text-gold font-poppins font-semibold text-sm tracking-widest uppercase mb-3">Documentation</p>
+    <h1 class="font-sora font-extrabold text-4xl md:text-5xl mb-4">Help Center</h1>
+    <p class="text-white/70 font-manrope text-lg">Everything you need to know about using Growmark.</p>
+  </div>
+</section>
+
+<main class="flex-grow max-w-4xl mx-auto px-4 py-16 w-full">
+
+  <!-- Quick Start -->
+  <div class="bg-white rounded-2xl border border-slate shadow-sm p-8 mb-8">
+    <h2 class="font-sora font-bold text-navy text-2xl mb-6">Quick Start Guide</h2>
+    <div class="space-y-4">
+      <div class="flex gap-4 items-start">
+        <div class="w-8 h-8 rounded-full bg-gold flex items-center justify-center font-sora font-bold text-navy text-sm flex-shrink-0 mt-0.5">1</div>
+        <div>
+          <p class="font-poppins font-semibold text-navy text-sm mb-1">Open the tool</p>
+          <p class="font-manrope text-sm text-graphite/70">Go to the Growmark home page. No sign-up or account required.</p>
+        </div>
+      </div>
+      <div class="flex gap-4 items-start">
+        <div class="w-8 h-8 rounded-full bg-gold flex items-center justify-center font-sora font-bold text-navy text-sm flex-shrink-0 mt-0.5">2</div>
+        <div>
+          <p class="font-poppins font-semibold text-navy text-sm mb-1">Upload your image(s)</p>
+          <p class="font-manrope text-sm text-graphite/70">Click the upload area or drag-and-drop. Supports JPG, PNG, WebP up to 20 MB. You can upload multiple files for batch processing.</p>
+        </div>
+      </div>
+      <div class="flex gap-4 items-start">
+        <div class="w-8 h-8 rounded-full bg-gold flex items-center justify-center font-sora font-bold text-navy text-sm flex-shrink-0 mt-0.5">3</div>
+        <div>
+          <p class="font-poppins font-semibold text-navy text-sm mb-1">Wait for processing</p>
+          <p class="font-manrope text-sm text-graphite/70">Growmark auto-detects the watermark size and position. Processing typically takes under 1 second per image.</p>
+        </div>
+      </div>
+      <div class="flex gap-4 items-start">
+        <div class="w-8 h-8 rounded-full bg-navy flex items-center justify-center font-sora font-bold text-gold text-sm flex-shrink-0 mt-0.5">4</div>
+        <div>
+          <p class="font-poppins font-semibold text-navy text-sm mb-1">Download result</p>
+          <p class="font-manrope text-sm text-graphite/70">Click "Download Clean PNG" for single images, or "Download All as ZIP" for batch results.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="bg-white rounded-2xl border border-slate shadow-sm p-8 mb-8">
+    <h2 class="font-sora font-bold text-navy text-2xl mb-6">Frequently Asked Questions</h2>
+    <div class="space-y-1">
+
+      <details class="border border-slate rounded-xl overflow-hidden">
+        <summary class="flex justify-between items-center px-5 py-4 font-poppins font-semibold text-navy text-sm hover:bg-soft-bg transition-colors">
+          What types of images does Growmark work with?
+          <svg class="chevron w-4 h-4 text-navy-md flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </summary>
+        <div class="px-5 pb-4 pt-2 text-sm font-manrope text-graphite/80 leading-relaxed border-t border-slate">
+          Growmark is specifically designed for images generated by Google Gemini AI. These images contain a semi-transparent white watermark in the bottom-right corner. The tool automatically detects whether a 48×48 or 96×96 watermark is present based on image dimensions.
+        </div>
+      </details>
+
+      <details class="border border-slate rounded-xl overflow-hidden">
+        <summary class="flex justify-between items-center px-5 py-4 font-poppins font-semibold text-navy text-sm hover:bg-soft-bg transition-colors">
+          Is my data private? Are my images uploaded anywhere?
+          <svg class="chevron w-4 h-4 text-navy-md flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </summary>
+        <div class="px-5 pb-4 pt-2 text-sm font-manrope text-graphite/80 leading-relaxed border-t border-slate">
+          Absolutely not. Growmark runs 100% inside your browser using JavaScript and the Canvas API. No image data is ever transmitted to any server. Your files stay entirely on your device.
+        </div>
+      </details>
+
+      <details class="border border-slate rounded-xl overflow-hidden">
+        <summary class="flex justify-between items-center px-5 py-4 font-poppins font-semibold text-navy text-sm hover:bg-soft-bg transition-colors">
+          Why does it say "not a Gemini image"?
+          <svg class="chevron w-4 h-4 text-navy-md flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </summary>
+        <div class="px-5 pb-4 pt-2 text-sm font-manrope text-graphite/80 leading-relaxed border-t border-slate">
+          Growmark reads EXIF metadata to check for a Gemini-specific credit tag. If the image has been converted, screenshot-cropped, or stripped of metadata, this check may fail. You can still process the image — the check is advisory only.
+        </div>
+      </details>
+
+      <details class="border border-slate rounded-xl overflow-hidden">
+        <summary class="flex justify-between items-center px-5 py-4 font-poppins font-semibold text-navy text-sm hover:bg-soft-bg transition-colors">
+          How many images can I process at once?
+          <svg class="chevron w-4 h-4 text-navy-md flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </summary>
+        <div class="px-5 pb-4 pt-2 text-sm font-manrope text-graphite/80 leading-relaxed border-t border-slate">
+          There is no hard limit. Growmark processes up to 3 images concurrently in batch mode. For very large batches (50+ images), processing time depends on your device's hardware. Each image must be under 20 MB.
+        </div>
+      </details>
+
+      <details class="border border-slate rounded-xl overflow-hidden">
+        <summary class="flex justify-between items-center px-5 py-4 font-poppins font-semibold text-navy text-sm hover:bg-soft-bg transition-colors">
+          What format are results saved in?
+          <svg class="chevron w-4 h-4 text-navy-md flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </summary>
+        <div class="px-5 pb-4 pt-2 text-sm font-manrope text-graphite/80 leading-relaxed border-t border-slate">
+          All results are exported as lossless PNG files, regardless of input format. This ensures maximum quality. Batch downloads are packaged as a single ZIP archive.
+        </div>
+      </details>
+
+    </div>
+  </div>
+
+  <!-- Troubleshooting -->
+  <div class="bg-white rounded-2xl border border-slate shadow-sm p-8">
+    <h2 class="font-sora font-bold text-navy text-2xl mb-4">Troubleshooting</h2>
+    <div class="space-y-4 text-sm font-manrope text-graphite/80 leading-relaxed">
+      <p><strong class="text-navy">Engine won't initialise:</strong> Try refreshing the page. Growmark requires a modern browser (Chrome 80+, Firefox 80+, Safari 13+).</p>
+      <p><strong class="text-navy">Watermark still visible after processing:</strong> This may indicate the image was not the original Gemini output (e.g. compressed or re-encoded). Try processing the highest-quality version of the file.</p>
+      <p><strong class="text-navy">File rejected:</strong> Ensure the file is a valid JPG, PNG, or WebP under 20 MB.</p>
+      <p><strong class="text-navy">Download doesn't start:</strong> Some browsers block automatic downloads. Check your browser's download bar or settings.</p>
+    </div>
+    <div class="mt-6 pt-5 border-t border-slate">
+      <p class="text-sm font-manrope text-graphite/60">Still having issues? <a href="./contact.html" class="text-gold font-semibold hover:underline">Contact our support team →</a></p>
+    </div>
+  </div>
+</main>
+
+<footer class="bg-navy text-white py-8 px-4 mt-auto">
+  <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+    <div class="flex items-baseline gap-0"><span class="font-sora font-extrabold text-lg text-white">GROW</span><span class="font-sora font-extrabold text-lg text-gold">MARK</span></div>
+    <div class="flex gap-5 text-sm text-white/50 font-manrope">
+      <a href="./terms.html"   class="hover:text-gold transition-colors">Terms</a>
+      <a href="./privacy.html" class="hover:text-gold transition-colors">Privacy</a>
+      <a href="./contact.html" class="hover:text-gold transition-colors">Contact</a>
+    </div>
+    <p class="text-white/30 text-sm font-manrope">© 2025 Growistan Venture</p>
+  </div>
+</footer>
+</body>
+</html>
