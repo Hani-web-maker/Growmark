@@ -3,38 +3,81 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Growmark — AI Watermark Remover by Growistan</title>
-  <meta name="description" content="Growmark removes Gemini AI watermarks instantly in your browser. 100% private, zero uploads, powered by reverse alpha-blending. By Growistan Venture." />
 
-  <!-- Fonts -->
+  <!-- ═══ SEO META ═══ -->
+  <title>Gemini AI Watermark Remover – Free, Instant & Lossless Online Tool</title>
+  <meta name="description" content="Remove Gemini AI watermarks from images instantly — free, lossless, and 100% private. No uploads, no sign-up. Advanced alpha-blending technology. Works with PNG, JPG, WebP." />
+  <meta name="keywords" content="gemini watermark remover, remove gemini ai watermark, gemini ai image watermark, nano banana watermark remover, remove watermark from gemini image, free watermark remover online, ai image watermark remover" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://geminiaiwatermarkremover.com/" />
+
+  <!-- ═══ OG / SOCIAL ═══ -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://geminiaiwatermarkremover.com/" />
+  <meta property="og:title"       content="Gemini AI Watermark Remover – Free, Instant & Lossless" />
+  <meta property="og:description" content="Remove Gemini AI watermarks in seconds. 100% browser-based, zero uploads, pixel-perfect lossless results. Free forever." />
+  <meta property="og:image"       content="https://geminiaiwatermarkremover.com/og-image.png" />
+  <meta name="twitter:card"       content="summary_large_image" />
+  <meta name="twitter:title"      content="Gemini AI Watermark Remover – Free & Lossless" />
+  <meta name="twitter:description" content="Remove Gemini AI watermarks instantly in your browser. No uploads. No quality loss. Free." />
+
+  <!-- ═══ SCHEMA ═══ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Gemini AI Watermark Remover",
+    "url": "https://geminiaiwatermarkremover.com",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Free online tool to remove Gemini AI watermarks from images instantly using advanced alpha-blending. 100% browser-based, no uploads required.",
+    "featureList": ["Lossless PNG export","Batch processing","100% browser-based","No sign-up required","Supports PNG JPG WebP"]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type":"Question","name":"How to remove Gemini AI watermark from images?","acceptedAnswer":{"@type":"Answer","text":"Upload your image to the tool. It automatically detects and removes the Gemini watermark within seconds using advanced alpha-blending technology."}},
+      {"@type":"Question","name":"Does removing the watermark reduce image quality?","acceptedAnswer":{"@type":"Answer","text":"No. Our tool uses advanced alpha blending to ensure zero quality loss, no blur, and no artifacts."}},
+      {"@type":"Question","name":"Is this tool really free?","acceptedAnswer":{"@type":"Answer","text":"Yes. You can use the Gemini Watermark Remover completely free with no limits, no sign-up, and no hidden fees."}},
+      {"@type":"Question","name":"Are my images uploaded to a server?","acceptedAnswer":{"@type":"Answer","text":"No. Everything runs locally in your browser, ensuring full privacy. Your images never leave your device."}},
+      {"@type":"Question","name":"Does it support batch processing?","acceptedAnswer":{"@type":"Answer","text":"Currently images are processed one at a time to ensure maximum quality and accuracy, with batch download available as ZIP."}}
+    ]
+  }
+  </script>
+
+  <!-- ═══ FONTS ═══ -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Manrope:wght@400;500;600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="icon" type="image/webp" href="/src/assets/Growistan-Favicon.webp">
-  <!-- Tailwind -->
+
+  <!-- ═══ TAILWIND ═══ -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            gold:       '#F4B400',
-            'gold-lt':  '#FFD34D',
-            navy:       '#0B3C5D',
-            'navy-md':  '#1F5A7A',
-            graphite:   '#1C1C1C',
-            'soft-bg':  '#F5F7FA',
-            slate:      '#D9DEE7',
+            gold:      '#F4B400',
+            'gold-lt': '#FFD34D',
+            navy:      '#0B3C5D',
+            'navy-md': '#1F5A7A',
+            graphite:  '#1C1C1C',
+            'soft-bg': '#F5F7FA',
+            slate:     '#D9DEE7',
           },
           fontFamily: {
-            sora:    ['Sora', 'sans-serif'],
-            poppins: ['Poppins', 'sans-serif'],
-            manrope: ['Manrope', 'sans-serif'],
+            sora:    ['Sora','sans-serif'],
+            poppins: ['Poppins','sans-serif'],
+            manrope: ['Manrope','sans-serif'],
           },
           boxShadow: {
-            card:  '0px 6px 18px rgba(11,60,93,0.08)',
-            'card-hover': '0px 10px 30px rgba(11,60,93,0.14)',
-            gold:  '0 4px 20px rgba(244,180,0,0.35)',
+            card:       '0px 6px 18px rgba(11,60,93,0.08)',
+            'card-hover':'0px 10px 30px rgba(11,60,93,0.14)',
+            gold:       '0 4px 20px rgba(244,180,0,0.35)',
           }
         }
       }
@@ -44,213 +87,230 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Manrope', sans-serif; color: #1C1C1C; background: #F5F7FA; }
+    body { font-family:'Manrope',sans-serif; color:#1C1C1C; background:#F5F7FA; }
 
     /* ── Scrollbar ── */
-    ::-webkit-scrollbar        { width: 8px; }
-    ::-webkit-scrollbar-track  { background: #F5F7FA; }
-    ::-webkit-scrollbar-thumb  { background: #F4B400; border-radius: 4px; }
+    ::-webkit-scrollbar       { width:8px; }
+    ::-webkit-scrollbar-track { background:#F5F7FA; }
+    ::-webkit-scrollbar-thumb { background:#F4B400; border-radius:4px; }
 
-    /* ── Loading body ── */
-    body.loading { opacity: 0; }
-    body         { transition: opacity 0.3s ease; }
+    body.loading { opacity:0; }
+    body         { transition:opacity .3s ease; }
+    #loadingOverlay { display:none; }
 
-    /* ── Loading Overlay ── */
-    #loadingOverlay { display: none; }
+    /* ── Logo ── */
+    .logo-icon { width:38px; height:38px; background:linear-gradient(135deg,#0B3C5D,#1F5A7A); border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0; box-shadow:0 2px 8px rgba(11,60,93,0.2); }
+    .logo-stack { display:flex; flex-direction:column; line-height:1; }
+    .logo-main  { font-family:'Sora',sans-serif; font-weight:800; font-size:16px; letter-spacing:-0.3px; color:#0B3C5D; }
+    .logo-main span { color:#F4B400; }
+    .logo-sub   { font-family:'Poppins',sans-serif; font-weight:500; font-size:9px; letter-spacing:.6px; color:#1F5A7A; text-transform:uppercase; margin-top:1px; }
+
+    /* ── Nav ── */
+    .nav-link { position:relative; transition:color .18s; }
+    .nav-link::after { content:''; position:absolute; left:0; bottom:-2px; width:0; height:2px; background:#F4B400; border-radius:1px; transition:width .2s; }
+    .nav-link:hover::after { width:100%; }
+    .nav-link:hover { color:#F4B400; }
+
+    /* ── Hero ── */
+    .hero-gradient { background:linear-gradient(135deg,#0B3C5D 0%,#0B3C5D 45%,#1F5A7A 80%,#0d4a73 100%); }
 
     /* ── Upload Area ── */
     #uploadArea {
-      border: 2px dashed #D9DEE7;
-      border-radius: 16px;
-      background: #fff;
-      transition: border-color 0.2s, background 0.2s, transform 0.2s;
-      cursor: pointer;
+      border:2px dashed #D9DEE7; border-radius:16px;
+      background:#fff; cursor:pointer;
+      transition:border-color .2s,background .2s,transform .2s;
     }
-    #uploadArea:hover, #uploadArea.dragover {
-      border-color: #F4B400;
-      background: #fffcee;
-      transform: scale(1.005);
+    #uploadArea:hover,#uploadArea.dragover {
+      border-color:#F4B400; background:#fffcee; transform:scale(1.005);
     }
 
-    /* ── Progress bar shimmer ── */
-    @keyframes shimmer {
-      0%   { background-position: -200% center; }
-      100% { background-position:  200% center; }
-    }
+    /* ── Progress Bar ── */
+    @keyframes shimmer { 0%{background-position:-200% center} 100%{background-position:200% center} }
     .gm-progress-bar {
-      height: 4px; border-radius: 2px;
-      background: linear-gradient(90deg, #F4B400 0%, #FFD34D 50%, #F4B400 100%);
-      background-size: 200% 100%;
-      animation: shimmer 2s linear infinite;
+      height:4px; border-radius:2px;
+      background:linear-gradient(90deg,#F4B400 0%,#FFD34D 50%,#F4B400 100%);
+      background-size:200% 100%; animation:shimmer 2s linear infinite;
     }
 
-    /* ── Batch cards ── */
-    .gm-card {
-      background: #fff;
-      border: 1px solid #D9DEE7;
-      border-radius: 16px;
-      box-shadow: 0px 6px 18px rgba(11,60,93,0.06);
-      overflow: hidden;
-      transition: box-shadow 0.2s;
-    }
-    .gm-card:hover { box-shadow: 0px 10px 28px rgba(11,60,93,0.12); }
-    .gm-card-inner { display: flex; flex-wrap: wrap; align-items: center; gap: 0; min-height: 96px; }
-    .gm-card-thumb-wrap {
-      width: 96px; min-height: 96px; flex-shrink: 0;
-      background: #F5F7FA;
-      display: flex; align-items: center; justify-content: center;
-      border-right: 1px solid #D9DEE7;
-    }
-    .gm-card-thumb { max-width: 88px; max-height: 88px; border-radius: 8px; object-fit: contain; display: block; }
-    .gm-card-body  { flex: 1; padding: 14px 18px; min-width: 0; }
-    .gm-card-name  { font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 13px; color: #0B3C5D; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 4px; }
-    .gm-card-status { font-size: 12px; color: #6B7280; }
-    .gm-card-status.done  { color: #15803d; font-weight: 500; }
-    .gm-card-status.error { color: #dc2626; }
-    .gm-card-status.proc  { color: #1F5A7A; }
-    .gm-card-action { padding: 12px 16px; flex-shrink: 0; }
-    .gm-btn-dl {
-      display: flex; align-items: center; gap: 6px;
-      background: #F4B400; color: #0B3C5D;
-      border: none; border-radius: 10px;
-      font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 13px;
-      padding: 8px 16px; cursor: pointer;
-      transition: background 0.18s, box-shadow 0.18s, transform 0.1s;
-    }
-    .gm-btn-dl:hover { background: #FFD34D; box-shadow: 0 4px 16px rgba(244,180,0,0.4); transform: translateY(-1px); }
-    .gm-btn-dl.hidden { display: none; }
+    /* ── Batch Cards ── */
+    .gm-card { background:#fff; border:1px solid #D9DEE7; border-radius:16px; box-shadow:0px 6px 18px rgba(11,60,93,0.06); overflow:hidden; transition:box-shadow .2s; }
+    .gm-card:hover { box-shadow:0px 10px 28px rgba(11,60,93,0.12); }
+    .gm-card-inner { display:flex; flex-wrap:wrap; align-items:center; gap:0; min-height:96px; }
+    .gm-card-thumb-wrap { width:96px; min-height:96px; flex-shrink:0; background:#F5F7FA; display:flex; align-items:center; justify-content:center; border-right:1px solid #D9DEE7; }
+    .gm-card-thumb { max-width:88px; max-height:88px; border-radius:8px; object-fit:contain; display:block; }
+    .gm-card-body  { flex:1; padding:14px 18px; min-width:0; }
+    .gm-card-name  { font-family:'Poppins',sans-serif; font-weight:600; font-size:13px; color:#0B3C5D; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; margin-bottom:4px; }
+    .gm-card-status { font-size:12px; color:#6B7280; }
+    .gm-card-status.done  { color:#15803d; font-weight:500; }
+    .gm-card-status.error { color:#dc2626; }
+    .gm-card-status.proc  { color:#1F5A7A; }
+    .gm-card-action { padding:12px 16px; flex-shrink:0; }
+    .gm-btn-dl { display:flex; align-items:center; gap:6px; background:#F4B400; color:#0B3C5D; border:none; border-radius:10px; font-family:'Poppins',sans-serif; font-weight:600; font-size:13px; padding:8px 16px; cursor:pointer; transition:background .18s,box-shadow .18s,transform .1s; }
+    .gm-btn-dl:hover { background:#FFD34D; box-shadow:0 4px 16px rgba(244,180,0,.4); transform:translateY(-1px); }
+    .gm-btn-dl.hidden { display:none; }
 
-    /* ── Status message ── */
-    .status-msg { padding: 8px 12px; border-radius: 8px; font-size: 13px; }
-    .status-warn  { background: #fffbeb; color: #92400e; border: 1px solid #fde68a; }
-    .status-error { background: #fef2f2; color: #991b1b; border: 1px solid #fecaca; }
-    .status-success { background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; }
+    /* ── Buttons ── */
+    .btn-gold { background:#F4B400; color:#0B3C5D; border-radius:12px; font-family:'Poppins',sans-serif; font-weight:600; transition:background .18s,box-shadow .18s,transform .1s; }
+    .btn-gold:hover { background:linear-gradient(135deg,#F4B400,#FFD34D); box-shadow:0 6px 20px rgba(244,180,0,.4); transform:translateY(-1px); }
+    .btn-navy { background:#0B3C5D; color:#fff; border-radius:12px; font-family:'Poppins',sans-serif; font-weight:600; transition:background .18s,box-shadow .18s; }
+    .btn-navy:hover { background:#1F5A7A; box-shadow:0 6px 20px rgba(11,60,93,.3); }
 
-    /* ── Medium Zoom ── */
-    .medium-zoom-overlay, .medium-zoom-image--opened { z-index: 999; }
-    .medium-zoom-overlay { backdrop-filter: blur(6px); }
+    /* ── Feature Card ── */
+    .feature-card { transition:transform .2s,box-shadow .2s; }
+    .feature-card:hover { transform:translateY(-4px); box-shadow:0px 10px 30px rgba(11,60,93,.14); }
 
-    /* ── Nav active ── */
-    .nav-link { position: relative; transition: color 0.18s; }
-    .nav-link::after { content:''; position:absolute; left:0; bottom:-2px; width:0; height:2px; background:#F4B400; border-radius:1px; transition:width 0.2s; }
-    .nav-link:hover::after { width:100%; }
-    .nav-link:hover { color: #F4B400; }
+    /* ── Checker ── */
+    .checker { background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Crect width='10' height='10' fill='%23f0f0f0'/%3E%3Crect x='10' y='10' width='10' height='10' fill='%23f0f0f0'/%3E%3Crect x='10' y='0' width='10' height='10' fill='%23e4e4e4'/%3E%3Crect x='0' y='10' width='10' height='10' fill='%23e4e4e4'/%3E%3C/svg%3E"); }
 
-    /* ── Hero gradient ── */
-    .hero-gradient {
-      background: linear-gradient(135deg, #0B3C5D 0%, #0B3C5D 45%, #1F5A7A 80%, #0d4a73 100%);
-    }
+    /* ── Status ── */
+    .status-msg    { padding:8px 12px; border-radius:8px; font-size:13px; }
+    .status-warn   { background:#fffbeb; color:#92400e; border:1px solid #fde68a; }
+    .status-error  { background:#fef2f2; color:#991b1b; border:1px solid #fecaca; }
+    .status-success{ background:#f0fdf4; color:#166534; border:1px solid #bbf7d0; }
 
-    /* ── Feature card hover ── */
-    .feature-card { transition: transform 0.2s, box-shadow 0.2s; }
-    .feature-card:hover { transform: translateY(-4px); box-shadow: 0px 10px 30px rgba(11,60,93,0.14); }
+    /* ── Comparison Slider ── */
+    .compare-wrap { position:relative; overflow:hidden; border-radius:12px; user-select:none; }
+    .compare-after { position:absolute; top:0; left:0; width:50%; height:100%; overflow:hidden; }
+    .compare-after img { width:200%; max-width:none; }
+    .compare-divider { position:absolute; top:0; left:50%; width:2px; height:100%; background:#F4B400; transform:translateX(-50%); cursor:ew-resize; z-index:10; }
+    .compare-handle { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:40px; height:40px; background:#F4B400; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 12px rgba(244,180,0,.5); z-index:11; cursor:ew-resize; }
 
-    /* ── Gold CTA button ── */
-    .btn-gold {
-      background: #F4B400; color: #0B3C5D;
-      border-radius: 12px; font-family: 'Poppins', sans-serif; font-weight: 600;
-      transition: background 0.18s, box-shadow 0.18s, transform 0.1s;
-    }
-    .btn-gold:hover { background: linear-gradient(135deg,#F4B400,#FFD34D); box-shadow: 0 6px 20px rgba(244,180,0,0.4); transform: translateY(-1px); }
+    /* ── Table ── */
+    .compare-table th { background:#0B3C5D; color:#fff; font-family:'Poppins',sans-serif; font-weight:600; }
+    .compare-table td { border-bottom:1px solid #D9DEE7; }
+    .compare-table tr:last-child td { border:none; }
+    .compare-table tr:nth-child(even) td { background:#F5F7FA; }
+    .check-yes { color:#15803d; font-weight:700; }
+    .check-no  { color:#dc2626; }
 
-    /* ── Navy CTA button ── */
-    .btn-navy {
-      background: #0B3C5D; color: #fff;
-      border-radius: 12px; font-family: 'Poppins', sans-serif; font-weight: 600;
-      transition: background 0.18s, box-shadow 0.18s;
-    }
-    .btn-navy:hover { background: #1F5A7A; box-shadow: 0 6px 20px rgba(11,60,93,0.3); }
+    /* ── FAQ accordion ── */
+    .faq-item { border-bottom:1px solid #D9DEE7; }
+    .faq-item:last-child { border:none; }
+    .faq-btn { width:100%; text-align:left; background:none; border:none; cursor:pointer; padding:20px 0; display:flex; align-items:center; justify-content:space-between; gap:12px; }
+    .faq-icon { flex-shrink:0; width:24px; height:24px; background:#F4B400; border-radius:50%; display:flex; align-items:center; justify-content:center; transition:transform .25s; }
+    .faq-body { max-height:0; overflow:hidden; transition:max-height .3s ease,padding .25s; }
+    .faq-item.open .faq-icon { transform:rotate(45deg); }
+    .faq-item.open .faq-body { max-height:300px; padding-bottom:18px; }
 
-    /* ── Checkerboard preview background ── */
-    .checker {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Crect width='10' height='10' fill='%23f0f0f0'/%3E%3Crect x='10' y='10' width='10' height='10' fill='%23f0f0f0'/%3E%3Crect x='10' y='0' width='10' height='10' fill='%23e4e4e4'/%3E%3Crect x='0' y='10' width='10' height='10' fill='%23e4e4e4'/%3E%3C/svg%3E");
+    /* ── Pulse badge ── */
+    @keyframes pulse-ring { 0%{transform:scale(1);opacity:.6} 100%{transform:scale(1.5);opacity:0} }
+    .pulse-dot::before { content:''; position:absolute; inset:0; border-radius:50%; background:#F4B400; animation:pulse-ring 2s ease-out infinite; }
+    .pulse-dot { position:relative; display:inline-block; }
+
+    /* ── Fade in ── */
+    @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:none} }
+    .fade-up { animation:fadeUp .6s ease both; }
+    .fade-up-2 { animation:fadeUp .6s .15s ease both; }
+    .fade-up-3 { animation:fadeUp .6s .3s ease both; }
+
+    /* ── Mobile batch ── */
+    @media(max-width:640px){
+      .gm-card-inner { flex-direction:column; align-items:stretch; }
+      .gm-card-thumb-wrap { width:100%; min-height:120px; border-right:none; border-bottom:1px solid #D9DEE7; }
+      .gm-card-thumb { max-width:120px; max-height:120px; }
     }
 
-    /* Mobile card layout */
-    @media (max-width: 640px) {
-      .gm-card-inner { flex-direction: column; align-items: stretch; }
-      .gm-card-thumb-wrap { width: 100%; min-height: 120px; border-right: none; border-bottom: 1px solid #D9DEE7; }
-      .gm-card-thumb { max-width: 120px; max-height: 120px; }
-    }
+    /* ── Stats strip ── */
+    .stat-card { background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); border-radius:16px; padding:24px 28px; text-align:center; }
   </style>
 </head>
 
 <body class="loading min-h-screen flex flex-col">
 
-<!-- ═══════════════════════════ HEADER ═══════════════════════════════════════ -->
+<!-- ═══════════════════════════════════ HEADER ══════════════════════════════════════ -->
 <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate shadow-sm">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
 
-    <!-- Brand -->
-    <a href="./index.html" class="flex items-center gap-2 no-underline">
-      <div class="flex items-center gap-1">
-        <span class="font-sora font-800 text-xl tracking-tight text-navy leading-none">GROW</span><span class="font-sora font-800 text-xl tracking-tight text-gold leading-none">MARK</span>
+    <!-- Logo -->
+    <a href="./index.html" class="flex items-center gap-2.5 no-underline" aria-label="Gemini AI Watermark Remover Home">
+      <div class="logo-icon" aria-hidden="true">
+        <!-- Watermark removal icon: image + eraser concept -->
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F4B400" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/>
+          <polyline points="21 15 16 10 5 21"/><line x1="18" y1="6" x2="6" y2="18" stroke="#FFD34D" stroke-width="1.5" stroke-dasharray="2 2"/>
+        </svg>
       </div>
-      <span class="hidden sm:inline-block text-xs font-manrope text-navy-md bg-soft-bg border border-slate px-2 py-0.5 rounded-full">by Growistan</span>
+      <div class="logo-stack">
+        <span class="logo-main">Gemini <span>AI</span></span>
+        <span class="logo-sub">Watermark Remover</span>
+      </div>
     </a>
 
     <!-- Nav -->
-    <nav class="flex items-center gap-1 md:gap-2">
+    <nav class="flex items-center gap-1 md:gap-2" aria-label="Main navigation">
       <a href="./about.html"   class="nav-link hidden md:inline text-sm font-medium text-graphite px-3 py-2">About</a>
       <a href="./help.html"    class="nav-link hidden md:inline text-sm font-medium text-graphite px-3 py-2">Help</a>
       <a href="./contact.html" class="nav-link hidden md:inline text-sm font-medium text-graphite px-3 py-2">Contact</a>
-      <a href="./contact.html" class="btn-gold text-sm px-4 py-2 ml-2">Get Support</a>
+      <a href="#tool"          class="btn-gold text-sm px-4 py-2 ml-2">Remove Watermark →</a>
     </nav>
   </div>
 </header>
 
-<!-- ═══════════════════════════ HERO ════════════════════════════════════════ -->
-<section class="hero-gradient text-white py-20 px-4 relative overflow-hidden">
+<!-- ═══════════════════════════════════ HERO ════════════════════════════════════════ -->
+<section class="hero-gradient text-white py-20 px-4 relative overflow-hidden" id="tool" aria-labelledby="hero-heading">
 
-  <!-- Decorative gold rings -->
+  <!-- Decorative rings -->
   <div class="pointer-events-none absolute -top-24 -right-24 w-96 h-96 rounded-full border border-gold/20 opacity-40"></div>
   <div class="pointer-events-none absolute -top-12 -right-12 w-64 h-64 rounded-full border border-gold/30 opacity-30"></div>
   <div class="pointer-events-none absolute -bottom-32 -left-32 w-80 h-80 rounded-full border border-white/10"></div>
 
   <div class="max-w-4xl mx-auto text-center relative z-10">
-    <div class="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 text-sm font-manrope mb-6">
-      <span class="w-2 h-2 rounded-full bg-gold inline-block"></span>
-      100% Browser-Based · Zero Uploads · Instant Results
+
+    <!-- Badge -->
+    <div class="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 text-sm font-manrope mb-6 fade-up">
+      <span class="pulse-dot w-2 h-2 rounded-full bg-gold inline-block"></span>
+      100% Browser-Based &nbsp;·&nbsp; Zero Uploads &nbsp;·&nbsp; Instant Results
     </div>
-    <h1 class="font-sora font-extrabold text-4xl md:text-6xl leading-tight mb-5">
-      Remove Gemini AI<br/>
-      <span class="text-gold">Watermarks</span> Instantly
+
+    <!-- H1 — Primary SEO target keyword -->
+    <h1 id="hero-heading" class="font-sora font-extrabold text-4xl md:text-6xl leading-tight mb-5 fade-up-2">
+      Gemini AI Watermark Remover<br/>
+      <span class="text-gold">Free, Instant &amp; Lossless</span>
     </h1>
-    <p class="font-manrope text-white/75 text-lg md:text-xl max-w-2xl mx-auto mb-10">
-     Growmark delivers high-precision image restoration directly inside your browser. Every process runs locally on your device, ensuring your files remain completely private and under your control. No uploads, no external servers, no data exposure.
+
+    <p class="font-manrope text-white/75 text-lg md:text-xl max-w-2xl mx-auto mb-10 fade-up-3">
+      Remove the Gemini watermark from your AI-generated images in seconds — without reducing image quality or requiring any editing skills. Everything runs privately inside your browser. No uploads, no sign-ups, no servers.
     </p>
 
     <!-- Upload Card -->
     <div class="bg-white/5 border border-white/15 rounded-2xl p-3 max-w-3xl mx-auto backdrop-blur-sm">
       <div id="uploadArea" class="flex flex-col items-center justify-center w-full h-60">
         <div class="w-16 h-16 bg-gold/15 border-2 border-gold/40 rounded-2xl flex items-center justify-center mb-4">
-          <svg class="w-8 h-8 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-8 h-8 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
               d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
           </svg>
         </div>
-        <p class="text-white font-poppins font-semibold text-lg mb-1" style="color: #0B3C5D !important;">Drop images here or click to browse</p>
-        <p class="text-white/50 text-sm font-manrope"style="color: #0B3C5D !important;" >Supports JPG · PNG · WebP &nbsp;|&nbsp; Up to 20 MB per file &nbsp;|&nbsp; Batch processing supported</p>
+        <p class="font-poppins font-semibold text-lg mb-1" style="color:#0B3C5D">Drop images here or click to browse</p>
+        <p class="text-sm font-manrope" style="color:#1F5A7A">Supports JPG · PNG · WebP &nbsp;|&nbsp; Up to 20 MB &nbsp;|&nbsp; Batch supported</p>
         <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp" multiple class="hidden" />
       </div>
+    </div>
+
+    <!-- Trust micro-signals -->
+    <div class="flex flex-wrap justify-center gap-4 mt-6 text-white/50 text-xs font-manrope">
+      <span>🔒 Images never leave your device</span>
+      <span>⚡ No registration required</span>
+      <span>🖼️ Supports Nano Banana outputs</span>
+      <span>♾️ Unlimited usage, always free</span>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════ STEPS ════════════════════════════════════════ -->
-<section class="bg-white border-b border-slate py-10 px-4">
+<!-- ═══════════════════════════════════ STEPS ═══════════════════════════════════════ -->
+<section class="bg-white border-b border-slate py-10 px-4" aria-label="How to use">
   <div class="max-w-3xl mx-auto">
     <div class="flex flex-col md:flex-row items-center gap-2 md:gap-0">
       <div class="flex-1 flex items-center gap-3 bg-soft-bg rounded-xl px-5 py-4">
         <div class="w-9 h-9 rounded-full bg-gold flex items-center justify-center font-sora font-bold text-navy text-sm flex-shrink-0">1</div>
-        <span class="font-poppins font-medium text-sm text-graphite">Upload your Gemini image</span>
+        <span class="font-poppins font-medium text-sm text-graphite">Upload or drag your Gemini image</span>
       </div>
-      <div class="hidden md:block text-gold text-xl mx-3">›</div>
+      <div class="hidden md:block text-gold text-xl mx-3" aria-hidden="true">›</div>
       <div class="flex-1 flex items-center gap-3 bg-soft-bg rounded-xl px-5 py-4">
         <div class="w-9 h-9 rounded-full bg-navy flex items-center justify-center font-sora font-bold text-gold text-sm flex-shrink-0">2</div>
         <span class="font-poppins font-medium text-sm text-graphite">Engine auto-detects &amp; removes</span>
       </div>
-      <div class="hidden md:block text-gold text-xl mx-3">›</div>
+      <div class="hidden md:block text-gold text-xl mx-3" aria-hidden="true">›</div>
       <div class="flex-1 flex items-center gap-3 bg-soft-bg rounded-xl px-5 py-4">
         <div class="w-9 h-9 rounded-full bg-gold flex items-center justify-center font-sora font-bold text-navy text-sm flex-shrink-0">3</div>
         <span class="font-poppins font-medium text-sm text-graphite">Download clean PNG instantly</span>
@@ -259,11 +319,9 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════ SINGLE PREVIEW ═══════════════════════════════ -->
-<section id="singlePreview" class="max-w-7xl mx-auto px-4 py-12 scroll-mt-24" style="display:none">
+<!-- ═══════════════════════════════════ SINGLE PREVIEW ══════════════════════════════ -->
+<section id="singlePreview" class="max-w-7xl mx-auto px-4 py-12 scroll-mt-24" style="display:none" aria-label="Image preview">
   <div class="flex flex-col lg:flex-row gap-8">
-
-    <!-- Images -->
     <div class="flex-1 space-y-6">
       <!-- Original -->
       <div class="bg-white rounded-2xl shadow-card border border-slate overflow-hidden">
@@ -274,10 +332,9 @@
           <span id="originalInfo" class="text-xs text-navy-md font-manrope"></span>
         </div>
         <div class="h-56 md:h-96 p-4 checker flex items-center justify-center">
-          <img id="originalImage" class="max-w-full max-h-full object-contain rounded-lg shadow-sm block" data-zoomable alt="Original" />
+          <img id="originalImage" class="max-w-full max-h-full object-contain rounded-lg shadow-sm block" data-zoomable alt="Original image with Gemini watermark" />
         </div>
       </div>
-
       <!-- Result -->
       <div id="processedSection" class="bg-white rounded-2xl border-2 border-gold/40 shadow-card overflow-hidden scroll-mt-24" style="display:none">
         <div class="px-5 py-3 border-b border-gold/20 flex justify-between items-center" style="background:linear-gradient(90deg,#fffcee,#fff)">
@@ -287,11 +344,10 @@
           <span id="processedInfo" class="text-xs text-green-700 font-manrope"></span>
         </div>
         <div class="h-56 md:h-96 p-4 checker flex items-center justify-center">
-          <img id="processedImage" class="max-w-full max-h-full object-contain rounded-lg shadow-sm block" data-zoomable alt="Processed" />
+          <img id="processedImage" class="max-w-full max-h-full object-contain rounded-lg shadow-sm block" data-zoomable alt="Clean image with Gemini watermark removed" />
         </div>
       </div>
     </div>
-
     <!-- Sidebar -->
     <div class="w-full lg:w-72 flex-shrink-0">
       <div class="bg-white rounded-2xl shadow-card border border-slate p-6 sticky top-24">
@@ -306,8 +362,6 @@
             Reset / New Image
           </button>
         </div>
-        <!--<div id="statusMessage" class="mt-5 hidden" style="display:none"></div>-->
-        <!-- Progress hint -->
         <div class="mt-6 pt-5 border-t border-slate">
           <p class="text-xs font-manrope text-navy-md/70 leading-relaxed">
             💡 Tip: Click any image to zoom in and inspect watermark removal quality.
@@ -318,8 +372,8 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════ MULTI PREVIEW ════════════════════════════════ -->
-<section id="multiPreview" class="max-w-7xl mx-auto px-4 py-12 scroll-mt-24" style="display:none">
+<!-- ═══════════════════════════════════ MULTI PREVIEW ═══════════════════════════════ -->
+<section id="multiPreview" class="max-w-7xl mx-auto px-4 py-12 scroll-mt-24" style="display:none" aria-label="Batch processing">
   <div class="flex justify-between items-center mb-6 flex-wrap gap-4">
     <div>
       <h3 class="font-sora font-bold text-navy text-xl">Batch Processing</h3>
@@ -330,126 +384,678 @@
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
         Download All as ZIP
       </button>
-      <button id="resetBtn" class="btn-navy py-2.5 px-5 flex items-center gap-2 text-sm">
+      <button id="resetBtnMulti" class="btn-navy py-2.5 px-5 flex items-center gap-2 text-sm">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
         New Batch
       </button>
     </div>
   </div>
-  <!-- Progress bar -->
   <div class="w-full bg-slate rounded-full overflow-hidden mb-8 h-1.5">
     <div class="gm-progress-bar w-full"></div>
   </div>
   <div id="imageList" class="space-y-4"></div>
 </section>
 
-<!-- ═══════════════════════════ FEATURES ════════════════════════════════════ -->
-<section class="bg-white border-t border-slate py-20 px-4">
+<!-- ═══════════════════════════════════ REAL RESULTS ════════════════════════════════ -->
+<section class="bg-soft-bg border-t border-slate py-20 px-4" aria-labelledby="results-heading">
+  <div class="max-w-5xl mx-auto text-center">
+    <p class="text-gold font-poppins font-semibold text-sm tracking-widest uppercase mb-3">See Real Results</p>
+    <h2 id="results-heading" class="font-sora font-bold text-3xl md:text-4xl text-navy mb-4">
+      Before &amp; After Watermark Removal
+    </h2>
+    <p class="font-manrope text-graphite/65 text-base md:text-lg max-w-2xl mx-auto mb-12">
+      The difference speaks for itself. Our tool doesn't just erase the watermark — it restores the image underneath it. Left: original Gemini output with watermark. Right: processed result — watermark area restored at pixel level, clean and seamless.
+    </p>
+
+    <!-- Before / After cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+      <!-- Before -->
+      <div class="bg-white rounded-2xl border border-slate shadow-card overflow-hidden">
+        <div class="relative">
+          <!-- BEFORE badge -->
+          <div class="absolute top-4 left-4 z-10 bg-graphite text-white text-xs font-poppins font-bold px-3 py-1.5 rounded-full tracking-wider">BEFORE</div>
+          <!-- Simulated watermark image placeholder -->
+          <div class="h-72 md:h-80 bg-gradient-to-br from-slate-200 to-slate-300 flex items-center justify-center relative overflow-hidden">
+            <svg class="w-full h-full absolute inset-0 opacity-10" viewBox="0 0 400 320" preserveAspectRatio="xMidYMid slice">
+              <defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#0B3C5D" stroke-width="0.5"/></pattern></defs>
+              <rect width="400" height="320" fill="url(#grid)"/>
+            </svg>
+            <div class="relative z-10 text-center">
+              <div class="w-20 h-20 bg-white/30 rounded-2xl flex items-center justify-center mx-auto mb-3 border-2 border-white/50">
+                <svg class="w-10 h-10 text-navy/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              </div>
+              <!-- Simulated watermark overlay -->
+              <div class="absolute bottom-6 right-6 opacity-40">
+                <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center border border-white/80">
+                  <svg class="w-5 h-5 text-navy" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                </div>
+              </div>
+              <p class="text-navy/50 text-sm font-manrope">Your Gemini image<br/><span class="text-xs opacity-60">Gemini watermark visible</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="px-5 py-4 border-t border-slate bg-white text-left">
+          <p class="font-poppins font-semibold text-navy text-sm">Original Gemini Output</p>
+          <p class="font-manrope text-graphite/50 text-xs mt-1">AI watermark embedded in image via alpha compositing</p>
+        </div>
+      </div>
+
+      <!-- After -->
+      <div class="bg-white rounded-2xl border-2 border-gold/50 shadow-card overflow-hidden">
+        <div class="relative">
+          <!-- AFTER badge -->
+          <div class="absolute top-4 left-4 z-10 bg-navy text-gold text-xs font-poppins font-bold px-3 py-1.5 rounded-full tracking-wider">AFTER</div>
+          <!-- Clean image placeholder -->
+          <div class="h-72 md:h-80 bg-gradient-to-br from-soft-bg to-white flex items-center justify-center relative overflow-hidden" style="background:linear-gradient(135deg,#eef2f7,#f8fafc)">
+            <svg class="w-full h-full absolute inset-0 opacity-5" viewBox="0 0 400 320" preserveAspectRatio="xMidYMid slice">
+              <defs><pattern id="grid2" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#0B3C5D" stroke-width="0.5"/></pattern></defs>
+              <rect width="400" height="320" fill="url(#grid2)"/>
+            </svg>
+            <div class="relative z-10 text-center">
+              <div class="w-20 h-20 bg-gold/15 border-2 border-gold/40 rounded-2xl flex items-center justify-center mx-auto mb-3">
+                <svg class="w-10 h-10 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              </div>
+              <p class="text-navy/60 text-sm font-manrope">Clean, restored image<br/><span class="text-xs opacity-60 text-green-600 font-semibold">✓ Watermark removed</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="px-5 py-4 border-t border-gold/20 text-left" style="background:linear-gradient(90deg,#fffcee,#fff)">
+          <p class="font-poppins font-semibold text-navy text-sm">Watermark Removed ✓</p>
+          <p class="font-manrope text-green-700 text-xs mt-1 font-medium">Pixel-perfect restoration · No blur · No artifacts · Lossless</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Result detail list -->
+    <div class="mt-10 flex flex-wrap justify-center gap-6">
+      <div class="flex items-center gap-2 text-sm font-manrope text-graphite/70">
+        <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+        No blur or smudging
+      </div>
+      <div class="flex items-center gap-2 text-sm font-manrope text-graphite/70">
+        <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+        No visible patches
+      </div>
+      <div class="flex items-center gap-2 text-sm font-manrope text-graphite/70">
+        <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+        Smooth background reconstruction
+      </div>
+      <div class="flex items-center gap-2 text-sm font-manrope text-graphite/70">
+        <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+        Natural color blending
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ SEO INTRO SECTION ═══════════════════════════ -->
+<section class="bg-soft-bg border-t border-slate py-20 px-4" aria-labelledby="intro-heading">
+  <div class="max-w-4xl mx-auto text-center">
+    <p class="text-gold font-poppins font-semibold text-sm tracking-widest uppercase mb-3">The Fastest Way to Clean Your Images</p>
+    <h2 id="intro-heading" class="font-sora font-bold text-3xl md:text-4xl text-navy mb-6">
+      Remove Gemini Watermark from Images in Seconds
+      <span class="block text-navy-md text-2xl mt-2 font-semibold">(No Quality Loss)</span>
+    </h2>
+    <p class="font-manrope text-graphite/70 text-lg leading-relaxed max-w-3xl mx-auto mb-10">
+      Removing watermarks from AI-generated images used to mean blurry patches, broken backgrounds, and noticeable edits. Not anymore. With our advanced alpha-blending engine, you can <strong>remove the Gemini watermark online for free</strong> while keeping your image sharp, natural, and completely untouched. The tool intelligently reconstructs the background so no one can tell a watermark was ever there.
+    </p>
+    <!-- Result highlights -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="bg-white border border-slate rounded-2xl p-5 shadow-card text-center">
+        <div class="w-10 h-10 bg-green-50 border border-green-200 rounded-xl flex items-center justify-center mx-auto mb-3">
+          <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+        </div>
+        <p class="font-poppins font-semibold text-navy text-sm">No Blur or Smudging</p>
+      </div>
+      <div class="bg-white border border-slate rounded-2xl p-5 shadow-card text-center">
+        <div class="w-10 h-10 bg-green-50 border border-green-200 rounded-xl flex items-center justify-center mx-auto mb-3">
+          <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+        </div>
+        <p class="font-poppins font-semibold text-navy text-sm">No Visible Patches</p>
+      </div>
+      <div class="bg-white border border-slate rounded-2xl p-5 shadow-card text-center">
+        <div class="w-10 h-10 bg-green-50 border border-green-200 rounded-xl flex items-center justify-center mx-auto mb-3">
+          <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+        </div>
+        <p class="font-poppins font-semibold text-navy text-sm">Smooth Background Reconstruction</p>
+      </div>
+      <div class="bg-white border border-slate rounded-2xl p-5 shadow-card text-center">
+        <div class="w-10 h-10 bg-green-50 border border-green-200 rounded-xl flex items-center justify-center mx-auto mb-3">
+          <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+        </div>
+        <p class="font-poppins font-semibold text-navy text-sm">Natural Color Blending</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ FEATURES ════════════════════════════════════ -->
+<section class="bg-white border-t border-slate py-20 px-4" aria-labelledby="features-heading">
+  <div class="max-w-6xl mx-auto">
+    <div class="flex flex-col lg:flex-row gap-16 items-start">
+
+      <!-- Left: heading + description -->
+      <div class="lg:w-5/12 flex-shrink-0">
+        <p class="text-gold font-poppins font-semibold text-sm tracking-widest uppercase mb-3">Why Choose Us</p>
+        <h2 id="features-heading" class="font-sora font-bold text-3xl md:text-4xl text-navy leading-tight mb-6">
+          Why Our Gemini Watermark Remover is Better Than Others
+        </h2>
+        <p class="font-manrope text-graphite/65 text-base leading-relaxed mb-8">
+          Most tools try to cover or blur the watermark. That's why results often look fake or low quality. We built something different — a precision engine that truly reverses the watermark at a pixel level, leaving your image completely natural and untouched.
+        </p>
+        <a href="#tool" class="btn-gold inline-flex items-center gap-2 px-7 py-3.5 text-sm">
+          Try It Free Now →
+        </a>
+      </div>
+
+      <!-- Right: 2-col checklist -->
+      <div class="flex-1">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
+
+          <div class="flex items-start gap-3">
+            <div class="w-6 h-6 rounded-full bg-navy/10 border border-navy/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg class="w-3 h-3 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+            </div>
+            <div>
+              <p class="font-poppins font-semibold text-navy text-sm mb-1">Advanced Alpha Blending Technology</p>
+              <p class="font-manrope text-graphite/60 text-sm leading-relaxed">Pixel-perfect reconstruction — not guessing or smudging, but mathematically reversing the watermark blend.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <div class="w-6 h-6 rounded-full bg-navy/10 border border-navy/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg class="w-3 h-3 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+            </div>
+            <div>
+              <p class="font-poppins font-semibold text-navy text-sm mb-1">100% Lossless Image Quality</p>
+              <p class="font-manrope text-graphite/60 text-sm leading-relaxed">No compression. No degradation. No artificial patches. Sharp, detailed, and high-resolution every time.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <div class="w-6 h-6 rounded-full bg-navy/10 border border-navy/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg class="w-3 h-3 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+            </div>
+            <div>
+              <p class="font-poppins font-semibold text-navy text-sm mb-1">Fully Private – Works in Your Browser</p>
+              <p class="font-manrope text-graphite/60 text-sm leading-relaxed">Your images never leave your device. No servers, no tracking, no risks. Complete privacy guaranteed.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <div class="w-6 h-6 rounded-full bg-navy/10 border border-navy/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg class="w-3 h-3 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+            </div>
+            <div>
+              <p class="font-poppins font-semibold text-navy text-sm mb-1">Instant Processing – Under 3 Seconds</p>
+              <p class="font-manrope text-graphite/60 text-sm leading-relaxed">Speed matters. Most images are processed in under 3 seconds so you can clean and move on without waiting.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <div class="w-6 h-6 rounded-full bg-navy/10 border border-navy/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg class="w-3 h-3 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+            </div>
+            <div>
+              <p class="font-poppins font-semibold text-navy text-sm mb-1">Free &amp; Unlimited Usage</p>
+              <p class="font-manrope text-graphite/60 text-sm leading-relaxed">No hidden fees. No credit limits. Use the Gemini Watermark Remover as many times as you want — completely free.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <div class="w-6 h-6 rounded-full bg-navy/10 border border-navy/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg class="w-3 h-3 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+            </div>
+            <div>
+              <p class="font-poppins font-semibold text-navy text-sm mb-1">Supports All Gemini Outputs + Nano Banana</p>
+              <p class="font-manrope text-graphite/60 text-sm leading-relaxed">Whether your image comes from standard Gemini generation or Nano Banana outputs, our tool handles both with precision.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ HOW IT WORKS (STEP GUIDE) ═══════════════════ -->
+<section class="bg-soft-bg border-t border-slate py-20 px-4" aria-labelledby="howto-heading">
+  <div class="max-w-4xl mx-auto">
+    <div class="text-center mb-14">
+      <p class="text-gold font-poppins font-semibold text-sm tracking-widest uppercase mb-3">Step-by-Step Guide</p>
+      <h2 id="howto-heading" class="font-sora font-bold text-3xl md:text-4xl text-navy">
+        How to Remove Gemini Watermark
+      </h2>
+      <p class="font-manrope text-graphite/60 mt-4">You don't need any technical skills. The entire process is simple and beginner-friendly.</p>
+    </div>
+    <div class="space-y-6">
+      <!-- Step 1 -->
+      <div class="bg-white border border-slate rounded-2xl p-6 md:p-8 shadow-card flex gap-6 items-start">
+        <div class="w-12 h-12 rounded-full bg-gold flex items-center justify-center font-sora font-bold text-navy text-lg flex-shrink-0">1</div>
+        <div>
+          <h3 class="font-poppins font-semibold text-navy text-lg mb-2">Upload or Drag Your Image</h3>
+          <p class="font-manrope text-graphite/70 leading-relaxed">Click to upload your image or drag and drop it into the tool above. We support all common formats including <strong>PNG, JPG, and WebP</strong>. Files up to 20 MB are supported and batch uploads are welcome.</p>
+        </div>
+      </div>
+      <!-- Step 2 -->
+      <div class="bg-white border border-slate rounded-2xl p-6 md:p-8 shadow-card flex gap-6 items-start">
+        <div class="w-12 h-12 rounded-full bg-navy flex items-center justify-center font-sora font-bold text-gold text-lg flex-shrink-0">2</div>
+        <div>
+          <h3 class="font-poppins font-semibold text-navy text-lg mb-2">Automatic Watermark Detection &amp; Removal</h3>
+          <p class="font-manrope text-graphite/70 leading-relaxed">Our system automatically detects the Gemini watermark size (48×48 or 96×96) and its precise position based on your image dimensions. Advanced alpha-blending reconstruction removes it — <strong>no manual selection needed</strong>.</p>
+        </div>
+      </div>
+      <!-- Step 3 -->
+      <div class="bg-white border border-slate rounded-2xl p-6 md:p-8 shadow-card flex gap-6 items-start">
+        <div class="w-12 h-12 rounded-full bg-gold flex items-center justify-center font-sora font-bold text-navy text-lg flex-shrink-0">3</div>
+        <div>
+          <h3 class="font-poppins font-semibold text-navy text-lg mb-2">Download Clean Image – No Watermark</h3>
+          <p class="font-manrope text-graphite/70 leading-relaxed">Once processing is complete, download your clean image instantly as a full-resolution PNG. No watermark. No quality loss. What used to take minutes in editing software now takes just a few seconds.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-10 text-center">
+      <a href="#tool" class="btn-gold inline-flex items-center gap-2 px-8 py-4 text-base">
+        Try It Now — It's Free
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ WHY HARD TO REMOVE ══════════════════════════ -->
+<section class="hero-gradient text-white py-20 px-4" aria-labelledby="science-heading">
+  <div class="max-w-4xl mx-auto">
+    <div class="text-center mb-12">
+      <p class="text-gold font-poppins font-semibold text-sm tracking-widest uppercase mb-3">The Problem &amp; Our Solution</p>
+      <h2 id="science-heading" class="font-sora font-bold text-3xl md:text-4xl mb-4">
+        What Makes Gemini Watermarks Hard to Remove?
+      </h2>
+      <p class="font-manrope text-white/70 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
+        Gemini watermarks aren't simple overlays — they are blended into the image using <strong class="text-white">transparency and subtle gradients</strong>. That's what makes them difficult to remove using basic tools.
+      </p>
+    </div>
+    <div class="grid md:grid-cols-2 gap-8 items-start">
+      <!-- Left: why traditional fails -->
+      <div class="bg-white/10 border border-white/20 rounded-2xl p-7">
+        <h3 class="font-poppins font-semibold text-white text-lg mb-5 flex items-center gap-2">
+          <span class="w-6 h-6 rounded-full bg-red-500/30 border border-red-400/40 flex items-center justify-center flex-shrink-0">
+            <svg class="w-3 h-3 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/></svg>
+          </span>
+          Why Traditional Methods Fail
+        </h3>
+        <div class="space-y-4">
+          <div class="flex items-start gap-3">
+            <span class="w-5 h-5 rounded-full bg-red-500/20 border border-red-400/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg class="w-2.5 h-2.5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12"/></svg>
+            </span>
+            <p class="font-manrope text-white/70 text-sm leading-relaxed">They <strong class="text-white">blur the area</strong> leaving a smudged, unnatural look</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="w-5 h-5 rounded-full bg-red-500/20 border border-red-400/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg class="w-2.5 h-2.5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12"/></svg>
+            </span>
+            <p class="font-manrope text-white/70 text-sm leading-relaxed">They <strong class="text-white">leave visible artifacts</strong> detectable to the naked eye</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="w-5 h-5 rounded-full bg-red-500/20 border border-red-400/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg class="w-2.5 h-2.5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12"/></svg>
+            </span>
+            <p class="font-manrope text-white/70 text-sm leading-relaxed">They <strong class="text-white">damage surrounding pixels</strong> reducing overall image quality</p>
+          </div>
+        </div>
+      </div>
+      <!-- Right: our solution (plain English, no formulas) -->
+      <div class="bg-white/10 border border-white/20 rounded-2xl p-7">
+        <h3 class="font-poppins font-semibold text-white text-lg mb-5 flex items-center gap-2">
+          <span class="w-6 h-6 rounded-full bg-gold/30 border border-gold/40 flex items-center justify-center flex-shrink-0">
+            <svg class="w-3 h-3 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+          </span>
+          How We Solve It
+        </h3>
+        <p class="font-manrope text-white/70 text-sm leading-relaxed mb-5">
+          By using <strong class="text-white">alpha-blending reconstruction</strong>, we reverse the way the watermark was applied. Gemini blends a semi-transparent logo over your image — our engine understands exactly how that blend was created and works backwards to recover the original pixels underneath it with high accuracy.
+        </p>
+        <p class="font-manrope text-white/70 text-sm leading-relaxed">
+          The result is a clean, natural-looking image where the watermark area is <strong class="text-white">fully restored</strong> — not covered, not blurred, but genuinely reconstructed at the pixel level.
+        </p>
+        <div class="mt-5 pt-5 border-t border-white/10 flex flex-wrap gap-3 text-xs font-manrope text-white/50">
+          <span>✓ Handles 48×48 watermarks</span>
+          <span>✓ Handles 96×96 watermarks</span>
+          <span>✓ Lossless PNG export</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ USE CASES ════════════════════════════════════ -->
+<section class="bg-white border-t border-slate py-20 px-4" aria-labelledby="usecases-heading">
   <div class="max-w-6xl mx-auto">
     <div class="text-center mb-14">
-      <p class="text-gold font-poppins font-semibold text-sm tracking-widest uppercase mb-3">Why Growmark</p>
-      <h2 class="font-sora font-bold text-3xl md:text-4xl text-navy">Precision engineered for professionals</h2>
+      <p class="text-gold font-poppins font-semibold text-sm tracking-widest uppercase mb-3">Who Uses This Tool</p>
+      <h2 id="usecases-heading" class="font-sora font-bold text-3xl md:text-4xl text-navy">
+        Use Cases – Who Needs a Gemini Watermark Remover?
+      </h2>
+      <p class="font-manrope text-graphite/60 mt-4 max-w-xl mx-auto">Our tool is designed for anyone who wants clean, professional-looking AI images without distractions.</p>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div class="feature-card bg-soft-bg border border-slate rounded-2xl p-7 shadow-card">
-        <div class="w-12 h-12 bg-gold/15 border border-gold/30 rounded-xl flex items-center justify-center mb-5">
-          <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+      <div class="feature-card bg-soft-bg border border-slate rounded-2xl p-7 shadow-card flex gap-5">
+        <div class="w-12 h-12 bg-gold/15 border border-gold/30 rounded-xl flex items-center justify-center flex-shrink-0">
+          <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.069A1 1 0 0121 8.82V15.18a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
         </div>
-        <h4 class="font-poppins font-semibold text-navy text-base mb-2">Lightning Fast</h4>
-        <p class="font-manrope text-sm text-graphite/70 leading-relaxed">WebAssembly-accelerated canvas processing delivers millisecond results — no queues, no servers, no latency.</p>
+        <div>
+          <h3 class="font-poppins font-semibold text-navy text-base mb-2">Content Creators &amp; YouTubers</h3>
+          <p class="font-manrope text-sm text-graphite/70 leading-relaxed">Remove unwanted watermarks and use your visuals freely in videos, thumbnails, and social media content without compromising quality.</p>
+        </div>
       </div>
-      <div class="feature-card bg-soft-bg border border-slate rounded-2xl p-7 shadow-card">
-        <div class="w-12 h-12 bg-navy/10 border border-navy/20 rounded-xl flex items-center justify-center mb-5">
-          <svg class="w-6 h-6 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+
+      <div class="feature-card bg-soft-bg border border-slate rounded-2xl p-7 shadow-card flex gap-5">
+        <div class="w-12 h-12 bg-navy/10 border border-navy/20 rounded-xl flex items-center justify-center flex-shrink-0">
+          <svg class="w-6 h-6 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/></svg>
         </div>
-        <h4 class="font-poppins font-semibold text-navy text-base mb-2">Absolute Privacy</h4>
-        <p class="font-manrope text-sm text-graphite/70 leading-relaxed">Zero data transmitted. All processing runs 100% client-side in your browser. Your images stay on your device.</p>
+        <div>
+          <h3 class="font-poppins font-semibold text-navy text-base mb-2">Designers &amp; Digital Artists</h3>
+          <p class="font-manrope text-sm text-graphite/70 leading-relaxed">Keep your creative work clean and presentation-ready. Perfect for portfolios, client work, and design showcases where professionalism matters.</p>
+        </div>
       </div>
-      <div class="feature-card bg-soft-bg border border-slate rounded-2xl p-7 shadow-card">
-        <div class="w-12 h-12 bg-gold/15 border border-gold/30 rounded-xl flex items-center justify-center mb-5">
-          <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>
+
+      <div class="feature-card bg-soft-bg border border-slate rounded-2xl p-7 shadow-card flex gap-5">
+        <div class="w-12 h-12 bg-gold/15 border border-gold/30 rounded-xl flex items-center justify-center flex-shrink-0">
+          <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"/></svg>
         </div>
-        <h4 class="font-poppins font-semibold text-navy text-base mb-2">Batch Processing</h4>
-        <p class="font-manrope text-sm text-graphite/70 leading-relaxed">Process dozens of images simultaneously. Concurrent engine processing with ZIP download — production-grade throughput.</p>
+        <div>
+          <h3 class="font-poppins font-semibold text-navy text-base mb-2">Social Media Managers</h3>
+          <p class="font-manrope text-sm text-graphite/70 leading-relaxed">Create polished posts, ads, and campaigns using watermark-free images that look completely original and professional across all platforms.</p>
+        </div>
       </div>
-      <div class="feature-card bg-soft-bg border border-slate rounded-2xl p-7 shadow-card">
-        <div class="w-12 h-12 bg-navy/10 border border-navy/20 rounded-xl flex items-center justify-center mb-5">
-          <svg class="w-6 h-6 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+
+      <div class="feature-card bg-soft-bg border border-slate rounded-2xl p-7 shadow-card flex gap-5">
+        <div class="w-12 h-12 bg-navy/10 border border-navy/20 rounded-xl flex items-center justify-center flex-shrink-0">
+          <svg class="w-6 h-6 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
         </div>
-        <h4 class="font-poppins font-semibold text-navy text-base mb-2">Lossless Output</h4>
-        <p class="font-manrope text-sm text-graphite/70 leading-relaxed">Exports as full-resolution PNG — no recompression, no quality loss, pixel-perfect reverse alpha-blending.</p>
-      </div>
-      <div class="feature-card bg-soft-bg border border-slate rounded-2xl p-7 shadow-card">
-        <div class="w-12 h-12 bg-gold/15 border border-gold/30 rounded-xl flex items-center justify-center mb-5">
-          <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <div>
+          <h3 class="font-poppins font-semibold text-navy text-base mb-2">Students &amp; Researchers</h3>
+          <p class="font-manrope text-sm text-graphite/70 leading-relaxed">Use AI-generated visuals in presentations, reports, and academic materials without distractions or visual noise getting in the way of your work.</p>
         </div>
-        <h4 class="font-poppins font-semibold text-navy text-base mb-2">Smart Detection</h4>
-        <p class="font-manrope text-sm text-graphite/70 leading-relaxed">Auto-detects watermark size (48×48 or 96×96) and precise position based on image dimensions. No manual tuning needed.</p>
-      </div>
-      <div class="feature-card bg-soft-bg border border-slate rounded-2xl p-7 shadow-card">
-        <div class="w-12 h-12 bg-navy/10 border border-navy/20 rounded-xl flex items-center justify-center mb-5">
-          <svg class="w-6 h-6 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-        </div>
-        <h4 class="font-poppins font-semibold text-navy text-base mb-2">Free Forever</h4>
-        <p class="font-manrope text-sm text-graphite/70 leading-relaxed">No account, no subscription, no hidden limits. Growmark is a free-to-use tool by Growistan Venture for the creative community.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════ HOW IT WORKS ═════════════════════════════════ -->
-<section class="hero-gradient text-white py-20 px-4" style="display:none !important ;">
+<!-- ═══════════════════════════════════ COMPARISON TABLE ════════════════════════════ -->
+<section class="bg-soft-bg border-t border-slate py-20 px-4" aria-labelledby="compare-heading">
+  <div class="max-w-4xl mx-auto">
+    <div class="text-center mb-12">
+      <p class="text-gold font-poppins font-semibold text-sm tracking-widest uppercase mb-3">How We Compare</p>
+      <h2 id="compare-heading" class="font-sora font-bold text-3xl md:text-4xl text-navy">
+        Gemini Watermark Remover vs Other Tools
+      </h2>
+      <p class="font-manrope text-graphite/60 mt-4">Not all tools are created equal. Here's how we compare.</p>
+    </div>
+    <div class="bg-white rounded-2xl shadow-card border border-slate overflow-hidden">
+      <table class="compare-table w-full text-sm" role="table">
+        <thead>
+          <tr>
+            <th class="px-6 py-4 text-left text-sm">Feature</th>
+            <th class="px-6 py-4 text-center text-sm">Our Tool</th>
+            <th class="px-6 py-4 text-center text-sm">Typical Tools</th>
+          </tr>
+        </thead>
+        <tbody class="font-manrope">
+          <tr>
+            <td class="px-6 py-4 text-graphite font-medium">Removal Quality</td>
+            <td class="px-6 py-4 text-center"><span class="check-yes">✓ Pixel-perfect alpha blending</span></td>
+            <td class="px-6 py-4 text-center"><span class="check-no">✗ Blur or patch-based</span></td>
+          </tr>
+          <tr>
+            <td class="px-6 py-4 text-graphite font-medium">Image Quality</td>
+            <td class="px-6 py-4 text-center"><span class="check-yes">✓ 100% lossless</span></td>
+            <td class="px-6 py-4 text-center"><span class="check-no">✗ Often degraded</span></td>
+          </tr>
+          <tr>
+            <td class="px-6 py-4 text-graphite font-medium">Privacy</td>
+            <td class="px-6 py-4 text-center"><span class="check-yes">✓ Fully local (no upload)</span></td>
+            <td class="px-6 py-4 text-center"><span class="check-no">✗ Server-based processing</span></td>
+          </tr>
+          <tr>
+            <td class="px-6 py-4 text-graphite font-medium">Processing Speed</td>
+            <td class="px-6 py-4 text-center"><span class="check-yes">✓ Under 3 seconds</span></td>
+            <td class="px-6 py-4 text-center"><span class="check-no">✗ Slower processing</span></td>
+          </tr>
+          <tr>
+            <td class="px-6 py-4 text-graphite font-medium">Ease of Use</td>
+            <td class="px-6 py-4 text-center"><span class="check-yes">✓ One-click removal</span></td>
+            <td class="px-6 py-4 text-center"><span class="check-no">✗ Manual editing required</span></td>
+          </tr>
+          <tr>
+            <td class="px-6 py-4 text-graphite font-medium">Cost</td>
+            <td class="px-6 py-4 text-center"><span class="check-yes">✓ Free &amp; unlimited</span></td>
+            <td class="px-6 py-4 text-center"><span class="check-no">✗ Freemium or paid</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ COMPATIBILITY ═══════════════════════════════ -->
+<section class="bg-white border-t border-slate py-20 px-4" aria-labelledby="compat-heading">
   <div class="max-w-4xl mx-auto text-center">
-    <p class="text-gold font-poppins font-semibold text-sm tracking-widest uppercase mb-3">The Science</p>
-    <h2 class="font-sora font-bold text-3xl md:text-4xl mb-6">How Growmark removes watermarks</h2>
-    <p class="font-manrope text-white/70 text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-8">
-      Gemini AI applies watermarks using <strong class="text-white">alpha compositing</strong> —
-      blending a semi-transparent white logo over your image.
-      Growmark inverts this mathematically:
+    <p class="text-gold font-poppins font-semibold text-sm tracking-widest uppercase mb-3">Broad Compatibility</p>
+    <h2 id="compat-heading" class="font-sora font-bold text-3xl md:text-4xl text-navy mb-6">
+      Supported Image Types &amp; Compatibility
+    </h2>
+    <p class="font-manrope text-graphite/70 text-lg leading-relaxed max-w-2xl mx-auto mb-12">
+      Our Gemini Watermark Remover is built to work seamlessly across all common image formats and outputs. No matter what format your image is in, you can remove the Gemini watermark quickly and reliably.
     </p>
-    <div class="bg-white/10 border border-white/20 rounded-2xl p-6 md:p-8 text-left max-w-2xl mx-auto">
-      <p class="font-manrope text-white/60 text-sm mb-2">Gemini blends:</p>
-      <p class="font-poppins text-white text-sm md:text-base mb-5 font-mono">
-        watermarked = α × white_logo + (1 − α) × original
-      </p>
-      <p class="font-manrope text-white/60 text-sm mb-2">Growmark solves:</p>
-      <p class="font-poppins text-gold text-sm md:text-base font-mono">
-        original = (watermarked − α × 255) / (1 − α)
-      </p>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="bg-soft-bg border border-slate rounded-2xl p-5 text-center shadow-card">
+        <div class="text-2xl mb-2">🖼️</div>
+        <div class="font-poppins font-semibold text-navy text-sm">PNG</div>
+        <div class="text-xs text-graphite/50 font-manrope mt-1">Lossless</div>
+      </div>
+      <div class="bg-soft-bg border border-slate rounded-2xl p-5 text-center shadow-card">
+        <div class="text-2xl mb-2">📷</div>
+        <div class="font-poppins font-semibold text-navy text-sm">JPG / JPEG</div>
+        <div class="text-xs text-graphite/50 font-manrope mt-1">Compressed</div>
+      </div>
+      <div class="bg-soft-bg border border-slate rounded-2xl p-5 text-center shadow-card">
+        <div class="text-2xl mb-2">🌐</div>
+        <div class="font-poppins font-semibold text-navy text-sm">WebP</div>
+        <div class="text-xs text-graphite/50 font-manrope mt-1">Modern Web</div>
+      </div>
+      <div class="bg-soft-bg border border-slate rounded-2xl p-5 text-center shadow-card">
+        <div class="text-2xl mb-2">🍌</div>
+        <div class="font-poppins font-semibold text-navy text-sm">Nano Banana</div>
+        <div class="text-xs text-graphite/50 font-manrope mt-1">Fully Supported</div>
+      </div>
     </div>
-    <p class="mt-8 text-white/50 text-sm font-manrope">Per-pixel precision · Handles both 48×48 and 96×96 watermark sizes · Lossless PNG export</p>
   </div>
 </section>
 
-<!-- ═══════════════════════════ FOOTER ═══════════════════════════════════════ -->
-<footer class="bg-navy text-white pt-16 pb-8 px-4">
+<!-- ═══════════════════════════════════ PRIVACY / SAFETY ════════════════════════════ -->
+<section class="hero-gradient text-white py-20 px-4" aria-labelledby="safety-heading">
+  <div class="max-w-4xl mx-auto text-center">
+    <div class="w-16 h-16 bg-gold/20 border-2 border-gold/40 rounded-2xl flex items-center justify-center mx-auto mb-6">
+      <svg class="w-8 h-8 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+    </div>
+    <h2 id="safety-heading" class="font-sora font-bold text-3xl md:text-4xl mb-4">Is It Safe to Remove Gemini Watermark?</h2>
+    <p class="font-manrope text-white/70 text-lg mb-10 max-w-2xl mx-auto">
+      Yes — your privacy and safety are our top priorities. This tool is designed with a <strong class="text-white">privacy-first architecture</strong> that keeps your files completely under your control at all times.
+    </p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-3xl mx-auto">
+      <div class="bg-white/10 border border-white/15 rounded-2xl p-5 text-center">
+        <div class="text-3xl mb-3">🔒</div>
+        <p class="font-poppins font-semibold text-white text-sm mb-2">Zero Server Uploads</p>
+        <p class="font-manrope text-white/60 text-xs">Your images are never uploaded to any server</p>
+      </div>
+      <div class="bg-white/10 border border-white/15 rounded-2xl p-5 text-center">
+        <div class="text-3xl mb-3">🖥️</div>
+        <p class="font-poppins font-semibold text-white text-sm mb-2">100% Browser Processing</p>
+        <p class="font-manrope text-white/60 text-xs">All computation runs locally in your browser</p>
+      </div>
+      <div class="bg-white/10 border border-white/15 rounded-2xl p-5 text-center">
+        <div class="text-3xl mb-3">🚫</div>
+        <p class="font-poppins font-semibold text-white text-sm mb-2">No Data Stored</p>
+        <p class="font-manrope text-white/60 text-xs">Nothing is tracked, stored, or shared</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ FAQ ══════════════════════════════════════════ -->
+<section class="bg-white border-t border-slate py-20 px-4" aria-labelledby="faq-heading">
+  <div class="max-w-3xl mx-auto">
+    <div class="text-center mb-14">
+      <p class="text-gold font-poppins font-semibold text-sm tracking-widest uppercase mb-3">Got Questions?</p>
+      <h2 id="faq-heading" class="font-sora font-bold text-3xl md:text-4xl text-navy">
+        Frequently Asked Questions
+      </h2>
+    </div>
+    <div class="bg-soft-bg border border-slate rounded-2xl p-6 md:p-8 shadow-card" id="faqContainer">
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <button class="faq-btn" aria-expanded="false">
+          <span class="font-poppins font-semibold text-navy text-sm md:text-base" itemprop="name">How to remove Gemini AI watermark from images?</span>
+          <span class="faq-icon" aria-hidden="true">
+            <svg class="w-3 h-3 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 6v12M6 12h12"/></svg>
+          </span>
+        </button>
+        <div class="faq-body" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <p class="font-manrope text-graphite/70 text-sm leading-relaxed" itemprop="text">Simply upload your image into the tool above, and it will automatically detect and remove the watermark within seconds using advanced alpha-blending technology. No manual selection or editing skills are needed.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <button class="faq-btn" aria-expanded="false">
+          <span class="font-poppins font-semibold text-navy text-sm md:text-base" itemprop="name">Does removing the watermark reduce image quality?</span>
+          <span class="faq-icon" aria-hidden="true">
+            <svg class="w-3 h-3 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 6v12M6 12h12"/></svg>
+          </span>
+        </button>
+        <div class="faq-body" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <p class="font-manrope text-graphite/70 text-sm leading-relaxed" itemprop="text">No. Our tool uses advanced alpha blending to ensure zero quality loss, no blur, and no artifacts. Your image is exported as a full-resolution PNG, keeping it sharp and pixel-perfect.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <button class="faq-btn" aria-expanded="false">
+          <span class="font-poppins font-semibold text-navy text-sm md:text-base" itemprop="name">Is this tool really free?</span>
+          <span class="faq-icon" aria-hidden="true">
+            <svg class="w-3 h-3 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 6v12M6 12h12"/></svg>
+          </span>
+        </button>
+        <div class="faq-body" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <p class="font-manrope text-graphite/70 text-sm leading-relaxed" itemprop="text">Yes. You can use the Gemini Watermark Remover completely free with no limits, no sign-up, and no hidden fees. It's free forever with unlimited usage.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <button class="faq-btn" aria-expanded="false">
+          <span class="font-poppins font-semibold text-navy text-sm md:text-base" itemprop="name">Are my images uploaded to a server?</span>
+          <span class="faq-icon" aria-hidden="true">
+            <svg class="w-3 h-3 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 6v12M6 12h12"/></svg>
+          </span>
+        </button>
+        <div class="faq-body" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <p class="font-manrope text-graphite/70 text-sm leading-relaxed" itemprop="text">No. Everything runs locally in your browser, ensuring full privacy. Your images never leave your device. No data is stored, tracked, or shared with any third party.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <button class="faq-btn" aria-expanded="false">
+          <span class="font-poppins font-semibold text-navy text-sm md:text-base" itemprop="name">Can I remove a watermark from any AI image?</span>
+          <span class="faq-icon" aria-hidden="true">
+            <svg class="w-3 h-3 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 6v12M6 12h12"/></svg>
+          </span>
+        </button>
+        <div class="faq-body" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <p class="font-manrope text-graphite/70 text-sm leading-relaxed" itemprop="text">This tool is specifically optimized for Gemini-generated images, including Nano Banana outputs. It may also work with similar semi-transparent watermark styles from other AI tools.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <button class="faq-btn" aria-expanded="false">
+          <span class="font-poppins font-semibold text-navy text-sm md:text-base" itemprop="name">Does it support batch processing?</span>
+          <span class="faq-icon" aria-hidden="true">
+            <svg class="w-3 h-3 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 6v12M6 12h12"/></svg>
+          </span>
+        </button>
+        <div class="faq-body" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <p class="font-manrope text-graphite/70 text-sm leading-relaxed" itemprop="text">Yes! You can upload multiple images at once for batch processing. Processed files can be downloaded individually or all at once as a ZIP archive.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ FINAL CTA ═══════════════════════════════════ -->
+<section class="bg-navy py-20 px-4" aria-label="Call to action">
+  <div class="max-w-3xl mx-auto text-center">
+    <div class="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 text-sm font-manrope text-white/70 mb-6">
+      <span class="w-2 h-2 rounded-full bg-gold inline-block"></span>
+      Free · Instant · Private
+    </div>
+    <h2 class="font-sora font-bold text-3xl md:text-5xl text-white mb-5 leading-tight">
+      Try the Best Gemini Watermark<br/>
+      <span class="text-gold">Remover Online Now</span>
+    </h2>
+    <p class="font-manrope text-white/60 text-lg mb-10 max-w-xl mx-auto">
+      Stop wasting time with complicated editing tools. Upload your image, click once, and get a clean watermark-free result instantly. Whether you're a creator, designer, or casual user — this is the fastest way.
+    </p>
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a href="#tool" class="btn-gold inline-flex items-center gap-2 px-8 py-4 text-base w-full sm:w-auto justify-center">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/></svg>
+        Remove Watermark Free
+      </a>
+      <a href="./help.html" class="inline-flex items-center gap-2 px-8 py-4 text-base border border-white/20 text-white/70 rounded-xl font-poppins font-semibold hover:bg-white/10 transition-colors w-full sm:w-auto justify-center">
+        How It Works →
+      </a>
+    </div>
+    <p class="mt-6 text-white/30 text-xs font-manrope">No registration · No uploads to servers · No hidden fees</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ FOOTER ══════════════════════════════════════ -->
+<footer class="bg-graphite text-white pt-16 pb-8 px-4" aria-label="Site footer">
   <div class="max-w-7xl mx-auto">
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
       <!-- Brand -->
       <div class="sm:col-span-2">
-        <div class="flex items-baseline gap-0 mb-3">
-          <span class="font-sora font-extrabold text-2xl tracking-tight text-white">GROW</span><span class="font-sora font-extrabold text-2xl tracking-tight text-gold">MARK</span>
+        <div class="flex items-center gap-2 mb-4">
+          <div class="w-8 h-8 rounded-lg bg-gold flex items-center justify-center">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0B3C5D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <span class="font-sora font-extrabold text-xl text-white tracking-tight">Gemini AI <span class="text-gold">Watermark Remover</span></span>
         </div>
-        <p class="text-white/60 text-sm font-manrope leading-relaxed max-w-xs mb-4">
-          Professional AI watermark removal tool. Powered by reverse alpha-blending. Built by Growistan Venture.
+        <p class="text-white/50 text-sm font-manrope leading-relaxed max-w-xs mb-4">
+          Free, instant, and lossless Gemini AI watermark removal. Powered by reverse alpha-blending technology. 100% browser-based.
         </p>
-        <p class="text-white/30 text-xs font-manrope">For educational and personal use only.</p>
+        <p class="text-white/25 text-xs font-manrope">For educational and personal use only. Not affiliated with Google or Gemini.</p>
       </div>
 
       <!-- Tool -->
       <div>
-        <h6 class="font-poppins font-semibold text-white/80 text-sm mb-4 tracking-wide uppercase">Tool</h6>
-        <ul class="space-y-2 text-sm text-white/50 font-manrope">
+        <h6 class="font-poppins font-semibold text-white/70 text-sm mb-4 tracking-wide uppercase">Tool</h6>
+        <ul class="space-y-2 text-sm text-white/40 font-manrope">
           <li><a href="./index.html"   class="hover:text-gold transition-colors">Watermark Remover</a></li>
           <li><a href="./help.html"    class="hover:text-gold transition-colors">How to Use</a></li>
-          <li><a href="./about.html"   class="hover:text-gold transition-colors">About Growmark</a></li>
+          <li><a href="./about.html"   class="hover:text-gold transition-colors">About</a></li>
         </ul>
       </div>
 
       <!-- Legal -->
       <div>
-        <h6 class="font-poppins font-semibold text-white/80 text-sm mb-4 tracking-wide uppercase">Legal</h6>
-        <ul class="space-y-2 text-sm text-white/50 font-manrope">
+        <h6 class="font-poppins font-semibold text-white/70 text-sm mb-4 tracking-wide uppercase">Legal</h6>
+        <ul class="space-y-2 text-sm text-white/40 font-manrope">
           <li><a href="./terms.html"   class="hover:text-gold transition-colors">Terms of Use</a></li>
           <li><a href="./privacy.html" class="hover:text-gold transition-colors">Privacy Policy</a></li>
           <li><a href="./contact.html" class="hover:text-gold transition-colors">Contact Us</a></li>
@@ -458,13 +1064,13 @@
     </div>
 
     <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-      <p class="text-white/30 text-sm font-manrope">© 2025 Growistan Venture. All rights reserved.</p>
-      <p class="text-white/30 text-xs font-manrope">GROWMARK is not affiliated with Google or Gemini.</p>
+      <p class="text-white/25 text-sm font-manrope">© 2025 GeminiAIWatermarkRemover.com · All rights reserved.</p>
+      <p class="text-white/20 text-xs font-manrope">Not affiliated with Google LLC or Google Gemini.</p>
     </div>
   </div>
 </footer>
 
-<!-- ═══════════════════════════ LOADING OVERLAY ══════════════════════════════ -->
+<!-- ═══════════════════════════════════ LOADING OVERLAY ═════════════════════════════ -->
 <div id="loadingOverlay" class="fixed inset-0 z-[100] flex items-center justify-center" style="background:rgba(11,60,93,0.85);display:none">
   <div class="bg-white rounded-2xl shadow-2xl p-8 flex flex-col items-center min-w-[200px]">
     <div class="relative w-14 h-14 mb-5">
@@ -475,6 +1081,29 @@
   </div>
 </div>
 
+<!-- ═══════════════════════════════════ JS ══════════════════════════════════════════ -->
+<script>
+  // Body reveal
+  document.addEventListener('DOMContentLoaded', () => {
+    document.body.classList.remove('loading');
+  });
+
+  // FAQ Accordion
+  document.querySelectorAll('.faq-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq-btn').setAttribute('aria-expanded','false');
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded','true');
+      }
+    });
+  });
+</script>
 <script src="./app.js"></script>
 </body>
 </html>
