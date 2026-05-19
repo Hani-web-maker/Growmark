@@ -439,7 +439,7 @@
           <img
             src="assets/watermark.png"
             alt="Image with watermark"
-            class="w-full h-72 md:h-80 object-cover"
+            class="w-full h-72 md:h-80 object-contain bg-soft-bg p-4"
           />
         </div>
         <div class="px-5 py-4 border-t border-slate bg-white text-left">
@@ -456,7 +456,7 @@
           <img
             src="assets/growmark_watermark.png"
             alt="Image with watermark removed"
-            class="w-full h-72 md:h-80 object-cover"
+            class="w-full h-72 md:h-80 object-contain bg-soft-bg p-4"
           />
         </div>
         <div class="px-5 py-4 border-t border-gold/20 text-left" style="background:linear-gradient(90deg,#fffcee,#fff)">
@@ -1038,14 +1038,18 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
       <!-- Brand -->
       <div class="sm:col-span-2">
-        <div class="flex items-center gap-2 mb-4">
-          <div class="w-8 h-8 rounded-lg bg-gold flex items-center justify-center">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0B3C5D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+        <a href="./index.html" class="flex items-center gap-2.5 no-underline mb-4" aria-label="Gemini AI Watermark Remover Home">
+          <div style="width:38px;height:38px;background:#F4B400;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B3C5D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/>
+              <polyline points="21 15 16 10 5 21"/><line x1="18" y1="6" x2="6" y2="18" stroke="#0B3C5D" stroke-width="1.5" stroke-dasharray="2 2"/>
             </svg>
           </div>
-          <span class="font-sora font-extrabold text-xl text-white tracking-tight">Gemini AI <span class="text-gold">Watermark Remover</span></span>
-        </div>
+          <div style="display:flex;flex-direction:column;line-height:1;">
+            <span style="font-family:'Sora',sans-serif;font-weight:800;font-size:16px;letter-spacing:-0.3px;color:#fff;">Gemini <span style="color:#F4B400;">AI</span></span>
+            <span style="font-family:'Poppins',sans-serif;font-weight:500;font-size:9px;letter-spacing:.6px;color:rgba(255,255,255,0.6);text-transform:uppercase;margin-top:1px;">Watermark Remover</span>
+          </div>
+        </a>
         <p class="text-white/50 text-sm font-manrope leading-relaxed max-w-xs mb-4">
           Free, instant, and lossless Gemini AI watermark removal. Powered by reverse alpha-blending technology. 100% browser-based.
         </p>
