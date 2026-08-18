@@ -1,0 +1,7 @@
+# Installed dependencies — restore with `npm install`, never commit.
+node_modules/
+
+# NOTE: docs/ is deliberately NOT ignored.
+# GitHub Pages serves the live site (geminiaiwatermarkremover.com) from /docs
+# on the main branch, so docs/ MUST stay committed even though build.js
+# generates it. See the header comment in build.js.
