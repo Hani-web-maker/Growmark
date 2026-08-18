@@ -2,6 +2,16 @@
  * Growmark Build Script
  * Cross-platform (Windows / macOS / Linux)
  * Uses esbuild in full bundle mode — no import statements in output
+ *
+ * SOURCE  → public/   (maintained by hand: HTML, assets, CNAME, robots, sitemap)
+ *           src/      (JS, bundled by esbuild)
+ * OUTPUT  → docs/     (generated — never hand-edit; this directory is CLEANED
+ *                      and regenerated on every build)
+ *
+ * docs/ IS COMMITTED TO GIT ON PURPOSE. Do NOT add it to .gitignore.
+ * GitHub Pages serves the live site (geminiaiwatermarkremover.com) directly
+ * from /docs on the main branch, so if docs/ is not committed, nothing is live.
+ * Edits belong in public/ or src/; docs/ is the build product of both.
  */
 
 const esbuild = require('./node_modules/esbuild/lib/main.js');
@@ -12,20 +22,40 @@ const isProd = process.argv.includes('--production') || process.argv.includes('-
 
 const SRC   = path.resolve(__dirname, 'src');
 const PUB   = path.resolve(__dirname, 'public');
-const DIST  = path.resolve(__dirname, 'dist');
+const DOCS  = path.resolve(__dirname, 'docs');
 
-// ── Clean dist ────────────────────────────────────────────────────────────────
-if (fs.existsSync(DIST)) {
-  fs.rmSync(DIST, { recursive: true, force: true });
+// ── Clean docs ────────────────────────────────────────────────────────────────
+if (fs.existsSync(DOCS)) {
+  fs.rmSync(DOCS, { recursive: true, force: true });
 }
-fs.mkdirSync(DIST, { recursive: true });
+fs.mkdirSync(DOCS, { recursive: true });
 
-// ── Copy HTML pages ───────────────────────────────────────────────────────────
-const htmlFiles = fs.readdirSync(PUB).filter(f => f.endsWith('.html'));
-htmlFiles.forEach(file => {
-  fs.copyFileSync(path.join(PUB, file), path.join(DIST, file));
-  console.log(`  ✓ Copied ${file}`);
-});
+// ── Copy every file in public/ → docs/, preserving subdirectories ─────────────
+function copyDir(srcDir, destDir, relBase = '') {
+  let count = 0;
+  for (const entry of fs.readdirSync(srcDir, { withFileTypes: true })) {
+    const srcPath  = path.join(srcDir, entry.name);
+    const destPath = path.join(destDir, entry.name);
+    const relPath  = relBase ? path.posix.join(relBase, entry.name) : entry.name;
+
+    if (entry.isDirectory()) {
+      fs.mkdirSync(destPath, { recursive: true });
+      count += copyDir(srcPath, destPath, relPath);
+    } else {
+      fs.copyFileSync(srcPath, destPath);
+      console.log(`  ✓ Copied ${relPath}`);
+      count++;
+    }
+  }
+  return count;
+}
+
+if (!fs.existsSync(PUB)) {
+  console.error(`\n  ✗ Source directory not found: ${PUB}\n`);
+  process.exit(1);
+}
+const copied = copyDir(PUB, DOCS);
+console.log(`  ✓ ${copied} file(s) copied from public/`);
 
 // ── Bundle JS ─────────────────────────────────────────────────────────────────
 async function build() {
@@ -33,7 +63,7 @@ async function build() {
 
   const result = await esbuild.build({
     entryPoints: [path.join(SRC, 'app.js')],
-    outfile: path.join(DIST, 'app.js'),
+    outfile: path.join(DOCS, 'app.js'),
     bundle: true,
     platform: 'browser',
     format: 'iife',
@@ -51,10 +81,10 @@ async function build() {
   });
 
   // Print bundle sizes
-  const appJs = path.join(DIST, 'app.js');
+  const appJs = path.join(DOCS, 'app.js');
   const bytes  = fs.statSync(appJs).size;
   const kb     = (bytes / 1024).toFixed(1);
-  console.log(`\n  ✓ dist/app.js  ${kb} kB`);
+  console.log(`\n  ✓ docs/app.js  ${kb} kB`);
 
   // Verify no import statements remain
   const content = fs.readFileSync(appJs, 'utf8');
@@ -66,7 +96,7 @@ async function build() {
     console.log('  ✓ No import/export statements — bundle is self-contained');
   }
 
-  console.log(`\n  🚀 Build complete → dist/\n`);
+  console.log(`\n  🚀 Build complete → docs/\n`);
 }
 
 build().catch(err => {

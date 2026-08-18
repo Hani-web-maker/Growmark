@@ -1,5 +1,5 @@
 /**
- * Simple static file server for dist/
+ * Simple static file server for docs/ (the built output — see build.js)
  * Cross-platform — Node.js built-in only, no dependencies
  */
 
@@ -8,7 +8,7 @@ const fs   = require('fs');
 const path = require('path');
 
 const PORT = process.env.PORT || 3000;
-const DIST = path.resolve(__dirname, '..', 'dist');
+const DOCS = path.resolve(__dirname, '..', 'docs');
 
 const MIME = {
   '.html': 'text/html; charset=utf-8',
@@ -26,10 +26,10 @@ const server = http.createServer((req, res) => {
   let urlPath = req.url.split('?')[0];
   if (urlPath === '/') urlPath = '/index.html';
 
-  const filePath = path.join(DIST, urlPath);
+  const filePath = path.join(DOCS, urlPath);
 
   // Security: prevent directory traversal
-  if (!filePath.startsWith(DIST)) {
+  if (!filePath.startsWith(DOCS)) {
     res.writeHead(403); res.end('Forbidden'); return;
   }
 
@@ -37,7 +37,7 @@ const server = http.createServer((req, res) => {
     if (err) {
       if (err.code === 'ENOENT') {
         // Try index.html fallback
-        fs.readFile(path.join(DIST, 'index.html'), (e2, d2) => {
+        fs.readFile(path.join(DOCS, 'index.html'), (e2, d2) => {
           if (e2) { res.writeHead(404); res.end('Not Found'); return; }
           res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
           res.end(d2);
