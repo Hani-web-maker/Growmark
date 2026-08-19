@@ -8,7 +8,8 @@
     "build:dev": "node build.js",
     "serve": "node scripts/serve.js",
     "start": "node build.js --production && node scripts/serve.js",
-    "install-esbuild": "node scripts/install-esbuild.js"
+    "install-esbuild": "node scripts/install-esbuild.js",
+    "test": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --import ./tests/register-loader.mjs tests/engine-regression.mjs"
   },
   "dependencies": {
     "exifr": "^7.1.3",
