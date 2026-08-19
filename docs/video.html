@@ -257,8 +257,8 @@
           </svg>
         </div>
         <p class="font-poppins font-semibold text-lg mb-1" style="color:#0B3C5D">Drop a video here or click to browse</p>
-        <p class="text-sm font-manrope" style="color:#1F5A7A">MP4 · WebM · MOV &nbsp;|&nbsp; Short clips work best</p>
-        <input type="file" id="fileInput" accept="video/mp4,video/webm,video/quicktime,.mp4,.webm,.mov" class="hidden" />
+        <p class="text-sm font-manrope" style="color:#1F5A7A">MP4 (MOV experimental) &nbsp;|&nbsp; Short clips work best</p>
+        <input type="file" id="fileInput" accept="video/mp4,video/quicktime,.mp4,.mov" class="hidden" />
       </div>
     </div>
 
@@ -272,7 +272,7 @@
     <div class="flex flex-wrap justify-center gap-4 mt-6 text-white/50 text-xs font-manrope">
       <span>🔒 Video never leaves your device</span>
       <span>⚡ No registration required</span>
-      <span>🔊 Audio is copied through, not re-encoded</span>
+      <span>🧪 Experimental — results vary</span>
     </div>
   </div>
 </section>
@@ -289,7 +289,7 @@
       <li><strong>Everything runs locally.</strong> Your clip is never uploaded — decoding, removal and re-encoding all happen in this browser tab.</li>
       <li><strong>It is memory-heavy.</strong> Browser video processing uses a lot of RAM and can fail on low-memory machines. A desktop browser is strongly recommended.</li>
       <li><strong>Short clips work best.</strong> Long or high-resolution videos take much longer and are more likely to run out of memory.</li>
-      <li><strong>Audio is preserved.</strong> The audio track is copied through untouched rather than re-encoded.</li>
+      <li><strong>Audio handling is untested in this beta.</strong> If your clip's audio track can't be copied through safely, processing stops with an error rather than producing a silent file.</li>
     </ul>
   </div>
 </section>
@@ -379,10 +379,10 @@
       </div>
       <div class="feature-card bg-soft-bg rounded-2xl p-6 border border-slate">
         <div class="w-11 h-11 rounded-xl bg-navy flex items-center justify-center mb-4">
-          <svg width="20" height="20" fill="none" stroke="#F4B400" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19V6l12-3v13M9 19a3 3 0 11-6 0 3 3 0 016 0zm12-3a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          <svg width="20" height="20" fill="none" stroke="#F4B400" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01M5 19h14a2 2 0 001.84-2.75L13.74 4a2 2 0 00-3.5 0l-7.1 12.25A2 2 0 004.99 19z"/></svg>
         </div>
-        <h3 class="font-poppins font-semibold text-base text-navy mb-2">Audio untouched</h3>
-        <p class="font-manrope text-sm text-graphite/70">The audio track is copied straight across without being decoded or re-encoded, so it stays exactly as it was and stays in sync.</p>
+        <h3 class="font-poppins font-semibold text-base text-navy mb-2">Calibration is provisional</h3>
+        <p class="font-manrope text-sm text-graphite/70">Video calibration is still being refined, so removal quality is not yet verified. Check every result before you use it.</p>
       </div>
       <div class="feature-card bg-soft-bg rounded-2xl p-6 border border-slate">
         <div class="w-11 h-11 rounded-xl bg-navy flex items-center justify-center mb-4">
