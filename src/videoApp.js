@@ -17,6 +17,11 @@ const downloadLink   = document.getElementById('downloadLink');
 const statsText      = document.getElementById('statsText');
 const advisory       = document.getElementById('advisory');
 const gateMessage    = document.getElementById('gateMessage');
+// Present on video.html, absent on the dev harness — everything below is guarded.
+const uploadArea     = document.getElementById('uploadArea');
+const originalVideo  = document.getElementById('originalVideo');
+
+let originalUrl = null;
 
 function setStatus(msg, type) {
     if (!statusMessage) return;
@@ -32,8 +37,33 @@ function setStage(text) {
 
 function setProgress(processed, total) {
     const pct = total > 0 ? Math.round((processed / total) * 100) : 0;
-    if (progressBar) progressBar.value = pct;
+    if (progressBar) {
+        if (progressBar.tagName === 'PROGRESS') progressBar.value = pct;
+        else progressBar.style.width = pct + '%';
+    }
     if (progressText) progressText.textContent = `${processed} / ${total} frames  (${pct}%)`;
+}
+
+/**
+ * The demuxer reads ISO-BMFF (MP4/MOV). WebM is a different container it cannot
+ * parse, so reject it here with a clear message rather than letting it surface
+ * as an opaque parse error deep in the pipeline.
+ */
+function validateFile(file) {
+    const name = (file.name || '').toLowerCase();
+    if (name.endsWith('.webm') || file.type === 'video/webm') {
+        setStatus('WebM files are not supported yet — this tool reads MP4 and MOV. ' +
+                  'Please convert the clip to MP4 and try again.', 'error');
+        return false;
+    }
+    return true;
+}
+
+function showOriginal(file) {
+    if (!originalVideo) return;
+    if (originalUrl) URL.revokeObjectURL(originalUrl);
+    originalUrl = URL.createObjectURL(file);
+    originalVideo.src = originalUrl;
 }
 
 /**
@@ -55,6 +85,7 @@ function checkCapabilities() {
     }
     if (fileInput) fileInput.disabled = true;
     if (runBtn) runBtn.disabled = true;
+    if (uploadArea) uploadArea.classList.add('is-disabled');
     return false;
 }
 
@@ -84,11 +115,33 @@ function init() {
     setupEventListeners();
 }
 
+function acceptSelection() {
+    setStatus('');
+    const file = fileInput.files[0];
+    if (!file) { runBtn.disabled = true; return; }
+    if (!validateFile(file)) { runBtn.disabled = true; return; }
+    showOriginal(file);
+    runBtn.disabled = false;
+}
+
 function setupEventListeners() {
-    fileInput.addEventListener('change', () => {
-        setStatus('');
-        runBtn.disabled = fileInput.files.length === 0;
-    });
+    fileInput.addEventListener('change', acceptSelection);
+
+    if (uploadArea) {
+        uploadArea.addEventListener('click', () => { if (!fileInput.disabled) fileInput.click(); });
+        uploadArea.addEventListener('keydown', e => {
+            if ((e.key === 'Enter' || e.key === ' ') && !fileInput.disabled) { e.preventDefault(); fileInput.click(); }
+        });
+        uploadArea.addEventListener('dragover', e => { e.preventDefault(); uploadArea.classList.add('dragover'); });
+        uploadArea.addEventListener('dragleave', () => uploadArea.classList.remove('dragover'));
+        uploadArea.addEventListener('drop', e => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            if (fileInput.disabled || !e.dataTransfer.files.length) return;
+            fileInput.files = e.dataTransfer.files;
+            acceptSelection();
+        });
+    }
     runBtn.addEventListener('click', run);
     cancelBtn.addEventListener('click', () => {
         if (abortController) abortController.abort();
@@ -98,6 +151,8 @@ function setupEventListeners() {
 async function run() {
     const file = fileInput.files[0];
     if (!file) return;
+    if (!validateFile(file)) return;
+    showOriginal(file);
 
     runBtn.disabled = true;
     cancelBtn.disabled = false;

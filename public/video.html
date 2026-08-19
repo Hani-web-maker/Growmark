@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ═══ SEO META ═══ -->
+  <title>Gemini Video Watermark Remover (Beta) — Free &amp; Browser-Based</title>
+  <meta name="description" content="Remove Gemini and Veo watermarks from short video clips directly in your browser. Experimental beta — nothing is uploaded, everything runs locally. Results vary." />
+  <meta name="keywords" content="gemini video watermark remover, veo watermark remover, remove watermark from ai video, browser video watermark removal" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://geminiaiwatermarkremover.com/video.html" />
+
+  <!-- ═══ FAVICON ═══ -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="apple-touch-icon" href="assets/favicon.svg" />
+
+  <!-- ═══ OG / SOCIAL ═══ -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://geminiaiwatermarkremover.com/video.html" />
+  <meta property="og:title"       content="Gemini Video Watermark Remover (Beta)" />
+  <meta property="og:description" content="Experimental browser-based watermark removal for short AI video clips. Nothing leaves your device. Results vary." />
+  <meta name="twitter:card"       content="summary_large_image" />
+  <meta name="twitter:title"      content="Gemini Video Watermark Remover (Beta)" />
+  <meta name="twitter:description" content="Experimental browser-based watermark removal for short AI video clips. Results vary." />
+
+  <!-- ═══ FONTS ═══ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Manrope:wght@400;500;600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- ═══ TAILWIND ═══ -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold:      '#F4B400',
+            'gold-lt': '#FFD34D',
+            navy:      '#0B3C5D',
+            'navy-md': '#1F5A7A',
+            graphite:  '#1C1C1C',
+            'soft-bg': '#F5F7FA',
+            slate:     '#D9DEE7',
+          },
+          fontFamily: {
+            sora:    ['Sora','sans-serif'],
+            poppins: ['Poppins','sans-serif'],
+            manrope: ['Manrope','sans-serif'],
+          },
+          boxShadow: {
+            card:       '0px 6px 18px rgba(11,60,93,0.08)',
+            'card-hover':'0px 10px 30px rgba(11,60,93,0.14)',
+            gold:       '0 4px 20px rgba(244,180,0,0.35)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family:'Manrope',sans-serif; color:#1C1C1C; background:#F5F7FA; }
+
+    /* ── Scrollbar ── */
+    ::-webkit-scrollbar       { width:8px; }
+    ::-webkit-scrollbar-track { background:#F5F7FA; }
+    ::-webkit-scrollbar-thumb { background:#F4B400; border-radius:4px; }
+
+    /* ── Logo ── */
+    .logo-icon { width:38px; height:38px; background:linear-gradient(135deg,#0B3C5D,#1F5A7A); border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0; box-shadow:0 2px 8px rgba(11,60,93,0.2); }
+    .logo-stack { display:flex; flex-direction:column; line-height:1; }
+    .logo-main  { font-family:'Sora',sans-serif; font-weight:800; font-size:16px; letter-spacing:-0.3px; color:#0B3C5D; }
+    .logo-main span { color:#F4B400; }
+    .logo-sub   { font-family:'Poppins',sans-serif; font-weight:500; font-size:9px; letter-spacing:.6px; color:#1F5A7A; text-transform:uppercase; margin-top:1px; }
+
+    /* ── Nav ── */
+    .nav-link { position:relative; transition:color .18s; }
+    .nav-link::after { content:''; position:absolute; left:0; bottom:-2px; width:0; height:2px; background:#F4B400; border-radius:1px; transition:width .2s; }
+    .nav-link:hover::after { width:100%; }
+    .nav-link:hover { color:#F4B400; }
+
+    /* ── Hero ── */
+    .hero-gradient { background:linear-gradient(135deg,#0B3C5D 0%,#0B3C5D 45%,#1F5A7A 80%,#0d4a73 100%); }
+
+    /* ── Tool tabs (Images | Videos) ── */
+    .gm-tabs { display:inline-flex; gap:4px; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.18); border-radius:14px; padding:4px; }
+    .gm-tab { display:inline-flex; align-items:center; gap:7px; font-family:'Poppins',sans-serif; font-weight:600; font-size:14px; padding:8px 18px; border-radius:10px; color:rgba(255,255,255,.72); text-decoration:none; transition:background .18s,color .18s; }
+    .gm-tab:hover { color:#fff; background:rgba(255,255,255,.09); }
+    .gm-tab.is-active { background:#F4B400; color:#0B3C5D; }
+    .gm-tab-beta { font-size:9px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; padding:2px 6px; border-radius:5px; background:rgba(244,180,0,.22); color:#FFD34D; }
+    .gm-tab.is-active .gm-tab-beta { background:rgba(11,60,93,.18); color:#0B3C5D; }
+
+    /* ── Upload Area ── */
+    #uploadArea {
+      border:2px dashed #D9DEE7; border-radius:16px;
+      background:#fff; cursor:pointer;
+      transition:border-color .2s,background .2s,transform .2s;
+    }
+    #uploadArea:hover,#uploadArea.dragover {
+      border-color:#F4B400; background:#fffcee; transform:scale(1.005);
+    }
+    #uploadArea.is-disabled { cursor:not-allowed; opacity:.55; }
+    #uploadArea.is-disabled:hover { border-color:#D9DEE7; background:#fff; transform:none; }
+
+    /* ── Buttons ── */
+    .btn-gold { background:#F4B400; color:#0B3C5D; border-radius:12px; font-family:'Poppins',sans-serif; font-weight:600; transition:background .18s,box-shadow .18s,transform .1s; }
+    .btn-gold:hover:not(:disabled) { background:linear-gradient(135deg,#F4B400,#FFD34D); box-shadow:0 6px 20px rgba(244,180,0,.4); transform:translateY(-1px); }
+    .btn-navy { background:#0B3C5D; color:#fff; border-radius:12px; font-family:'Poppins',sans-serif; font-weight:600; transition:background .18s,box-shadow .18s; }
+    .btn-navy:hover:not(:disabled) { background:#1F5A7A; box-shadow:0 6px 20px rgba(11,60,93,.3); }
+    .btn-gold:disabled, .btn-navy:disabled { opacity:.45; cursor:not-allowed; }
+
+    /* ── Progress ── */
+    .gm-progress-track { height:8px; border-radius:999px; background:#E4E9F0; overflow:hidden; }
+    @keyframes shimmer { 0%{background-position:-200% center} 100%{background-position:200% center} }
+    #progressBar {
+      height:100%; width:0%; border-radius:999px;
+      background:linear-gradient(90deg,#F4B400 0%,#FFD34D 50%,#F4B400 100%);
+      background-size:200% 100%; animation:shimmer 2s linear infinite;
+      transition:width .18s ease;
+    }
+
+    /* ── Status ── */
+    .status    { padding:10px 14px; border-radius:8px; font-size:13px; white-space:pre-wrap; }
+    .status-warn   { background:#fffbeb; color:#92400e; border:1px solid #fde68a; }
+    .status-error  { background:#fef2f2; color:#991b1b; border:1px solid #fecaca; }
+    .status-success{ background:#f0fdf4; color:#166534; border:1px solid #bbf7d0; }
+
+    /* ── Beta notice ── */
+    .beta-note { background:#fffbeb; border:1px solid #fde68a; border-left:4px solid #F4B400; border-radius:12px; }
+    .beta-pill { display:inline-block; font-family:'Poppins',sans-serif; font-size:10px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; background:#F4B400; color:#0B3C5D; padding:3px 8px; border-radius:6px; }
+
+    /* ── Video panels ── */
+    .video-panel { background:#fff; border:1px solid #D9DEE7; border-radius:16px; box-shadow:0px 6px 18px rgba(11,60,93,0.06); overflow:hidden; }
+    .video-panel video { width:100%; display:block; background:#0B3C5D; aspect-ratio:16/9; object-fit:contain; }
+    .video-panel-head { padding:12px 16px; border-bottom:1px solid #D9DEE7; font-family:'Poppins',sans-serif; font-weight:600; font-size:13px; color:#0B3C5D; display:flex; align-items:center; justify-content:space-between; gap:8px; }
+
+    /* ── Feature card ── */
+    .feature-card { transition:transform .2s,box-shadow .2s; }
+    .feature-card:hover { transform:translateY(-4px); box-shadow:0px 10px 30px rgba(11,60,93,.14); }
+
+    /* ── Pulse badge ── */
+    @keyframes pulse-ring { 0%{transform:scale(1);opacity:.6} 100%{transform:scale(1.5);opacity:0} }
+    .pulse-dot::before { content:''; position:absolute; inset:0; border-radius:50%; background:#F4B400; animation:pulse-ring 2s ease-out infinite; }
+    .pulse-dot { position:relative; display:inline-block; }
+
+    /* ── Fade in ── */
+    @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:none} }
+    .fade-up { animation:fadeUp .6s ease both; }
+    .fade-up-2 { animation:fadeUp .6s .15s ease both; }
+    .fade-up-3 { animation:fadeUp .6s .3s ease both; }
+  </style>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5D0X6HX10G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5D0X6HX10G');
+  </script>
+
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wtk6nx6c50");
+  </script>
+</head>
+
+<body class="min-h-screen flex flex-col">
+
+<!-- ═══════════════════════════════════ HEADER ══════════════════════════════════════ -->
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate shadow-sm">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-2.5 no-underline" aria-label="Gemini AI Watermark Remover Home">
+      <div class="logo-icon" aria-hidden="true">
+        <!-- Watermark removal icon: image + eraser concept -->
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F4B400" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/>
+          <polyline points="21 15 16 10 5 21"/><line x1="18" y1="6" x2="6" y2="18" stroke="#FFD34D" stroke-width="1.5" stroke-dasharray="2 2"/>
+        </svg>
+      </div>
+      <div class="logo-stack">
+        <span class="logo-main">Gemini <span>AI</span></span>
+        <span class="logo-sub">Watermark Remover</span>
+      </div>
+    </a>
+
+    <!-- Nav -->
+    <nav class="flex items-center gap-1 md:gap-2" aria-label="Main navigation">
+      <a href="./about.html"   class="nav-link hidden md:inline text-sm font-medium text-graphite px-3 py-2">About</a>
+      <a href="./help.html"    class="nav-link hidden md:inline text-sm font-medium text-graphite px-3 py-2">Help</a>
+      <a href="./contact.html" class="nav-link hidden md:inline text-sm font-medium text-graphite px-3 py-2">Contact</a>
+      <a href="#tool"          class="btn-gold text-sm px-4 py-2 ml-2">Remove Watermark →</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════ HERO / TOOL ═════════════════════════════════ -->
+<section class="hero-gradient text-white py-20 px-4 relative overflow-hidden" id="tool" aria-labelledby="hero-heading">
+
+  <!-- Decorative rings -->
+  <div class="pointer-events-none absolute -top-24 -right-24 w-96 h-96 rounded-full border border-gold/20 opacity-40"></div>
+  <div class="pointer-events-none absolute -top-12 -right-12 w-64 h-64 rounded-full border border-gold/30 opacity-30"></div>
+  <div class="pointer-events-none absolute -bottom-32 -left-32 w-80 h-80 rounded-full border border-white/10"></div>
+
+  <div class="max-w-4xl mx-auto text-center relative z-10">
+
+    <!-- Badge -->
+    <div class="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 text-sm font-manrope mb-6 fade-up">
+      <span class="pulse-dot w-2 h-2 rounded-full bg-gold inline-block"></span>
+      100% Browser-Based &nbsp;·&nbsp; Zero Uploads &nbsp;·&nbsp; Experimental
+    </div>
+
+    <!-- H1 -->
+    <h1 id="hero-heading" class="font-sora font-extrabold text-4xl md:text-6xl leading-tight mb-5 fade-up-2">
+      Gemini Video Watermark Remover<br/>
+      <span class="text-gold">Free &amp; Experimental</span>
+    </h1>
+
+    <p class="font-manrope text-white/75 text-lg md:text-xl max-w-2xl mx-auto mb-8 fade-up-3">
+      Strip the watermark from short AI-generated video clips without uploading anything. The whole
+      pipeline — decode, removal, re-encode — runs inside your browser. This tool is in beta and
+      results vary from clip to clip.
+    </p>
+
+    <!-- Tool tabs -->
+    <div class="mb-8">
+      <div class="gm-tabs" role="tablist" aria-label="Choose tool">
+        <a href="./index.html" class="gm-tab" role="tab" aria-selected="false">Images</a>
+        <a href="./video.html" class="gm-tab is-active" role="tab" aria-selected="true" aria-current="page">
+          Videos <span class="gm-tab-beta">Beta</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Capability gate — rendered by videoApp.js when WebCodecs is unavailable -->
+    <div id="gateMessage" class="hidden max-w-3xl mx-auto mb-6 text-left bg-white rounded-2xl border border-slate p-6 text-graphite"></div>
+
+    <!-- Desktop advisory — rendered by videoApp.js, non-blocking -->
+    <div id="advisory" class="hidden max-w-3xl mx-auto mb-6 text-left beta-note p-4 text-sm text-graphite/80 font-manrope"></div>
+
+    <!-- Upload Card -->
+    <div class="bg-white/5 border border-white/15 rounded-2xl p-3 max-w-3xl mx-auto backdrop-blur-sm">
+      <div id="uploadArea" class="flex flex-col items-center justify-center w-full h-60" role="button" tabindex="0" aria-label="Choose a video file">
+        <div class="w-16 h-16 bg-gold/15 border-2 border-gold/40 rounded-2xl flex items-center justify-center mb-4">
+          <svg class="w-8 h-8 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+              d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+          </svg>
+        </div>
+        <p class="font-poppins font-semibold text-lg mb-1" style="color:#0B3C5D">Drop a video here or click to browse</p>
+        <p class="text-sm font-manrope" style="color:#1F5A7A">MP4 · WebM · MOV &nbsp;|&nbsp; Short clips work best</p>
+        <input type="file" id="fileInput" accept="video/mp4,video/webm,video/quicktime,.mp4,.webm,.mov" class="hidden" />
+      </div>
+    </div>
+
+    <!-- Actions -->
+    <div class="flex flex-wrap justify-center gap-3 mt-6">
+      <button id="runBtn" class="btn-gold px-6 py-3 text-sm" disabled>Remove Watermark</button>
+      <button id="cancelBtn" class="btn-navy px-6 py-3 text-sm" disabled>Cancel</button>
+    </div>
+
+    <!-- Trust micro-signals -->
+    <div class="flex flex-wrap justify-center gap-4 mt-6 text-white/50 text-xs font-manrope">
+      <span>🔒 Video never leaves your device</span>
+      <span>⚡ No registration required</span>
+      <span>🔊 Audio is copied through, not re-encoded</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ BETA NOTICE ═════════════════════════════════ -->
+<section class="max-w-4xl mx-auto px-4 -mt-8 relative z-20" aria-label="Beta notice">
+  <div class="beta-note p-5 md:p-6">
+    <p class="font-poppins font-semibold text-sm text-graphite mb-2">
+      <span class="beta-pill">Beta</span>
+      &nbsp;Video removal is experimental
+    </p>
+    <ul class="text-sm font-manrope text-graphite/75 space-y-1.5 list-disc pl-5">
+      <li><strong>Results vary.</strong> Video watermark calibration is still provisional, so quality differs from clip to clip. Always check the output before you use it.</li>
+      <li><strong>Everything runs locally.</strong> Your clip is never uploaded — decoding, removal and re-encoding all happen in this browser tab.</li>
+      <li><strong>It is memory-heavy.</strong> Browser video processing uses a lot of RAM and can fail on low-memory machines. A desktop browser is strongly recommended.</li>
+      <li><strong>Short clips work best.</strong> Long or high-resolution videos take much longer and are more likely to run out of memory.</li>
+      <li><strong>Audio is preserved.</strong> The audio track is copied through untouched rather than re-encoded.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ STEPS ═══════════════════════════════════════ -->
+<section class="bg-white border-y border-slate py-10 px-4 mt-12" aria-label="How to use">
+  <div class="max-w-3xl mx-auto">
+    <div class="flex flex-col md:flex-row items-center gap-2 md:gap-0">
+      <div class="flex-1 flex items-center gap-3 bg-soft-bg rounded-xl px-5 py-4">
+        <div class="w-9 h-9 rounded-full bg-gold flex items-center justify-center font-sora font-bold text-navy text-sm flex-shrink-0">1</div>
+        <span class="font-poppins font-medium text-sm text-graphite">Pick a short AI video clip</span>
+      </div>
+      <div class="hidden md:block text-gold text-xl mx-3" aria-hidden="true">›</div>
+      <div class="flex-1 flex items-center gap-3 bg-soft-bg rounded-xl px-5 py-4">
+        <div class="w-9 h-9 rounded-full bg-navy flex items-center justify-center font-sora font-bold text-gold text-sm flex-shrink-0">2</div>
+        <span class="font-poppins font-medium text-sm text-graphite">Frames are cleaned in your browser</span>
+      </div>
+      <div class="hidden md:block text-gold text-xl mx-3" aria-hidden="true">›</div>
+      <div class="flex-1 flex items-center gap-3 bg-soft-bg rounded-xl px-5 py-4">
+        <div class="w-9 h-9 rounded-full bg-gold flex items-center justify-center font-sora font-bold text-navy text-sm flex-shrink-0">3</div>
+        <span class="font-poppins font-medium text-sm text-graphite">Review the result and download</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ WORKSPACE ═══════════════════════════════════ -->
+<section class="max-w-7xl mx-auto px-4 py-12 w-full" aria-label="Video workspace">
+
+  <!-- Progress -->
+  <div id="progressSection" class="max-w-3xl mx-auto mb-10">
+    <div class="flex items-center justify-between mb-2">
+      <span id="stageText" class="font-poppins font-semibold text-sm text-navy"></span>
+      <span id="progressText" class="font-manrope text-xs text-graphite/60">Waiting for a file…</span>
+    </div>
+    <div class="gm-progress-track" role="progressbar" aria-labelledby="stageText">
+      <div id="progressBar"></div>
+    </div>
+    <div id="statusMessage" class="status mt-4" style="display:none"></div>
+  </div>
+
+  <!-- Side-by-side preview -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+    <div class="video-panel">
+      <div class="video-panel-head">
+        <span>Original</span>
+        <span class="text-graphite/45 font-manrope font-normal text-xs">your file, untouched</span>
+      </div>
+      <video id="originalVideo" controls playsinline preload="metadata"></video>
+    </div>
+    <div class="video-panel">
+      <div class="video-panel-head">
+        <span>Watermark removed <span class="beta-pill ml-1">Beta</span></span>
+        <span class="text-graphite/45 font-manrope font-normal text-xs">experimental result</span>
+      </div>
+      <video id="resultVideo" controls playsinline preload="metadata"></video>
+    </div>
+  </div>
+
+  <!-- Download + stats -->
+  <div class="text-center mt-8">
+    <a id="downloadLink" class="btn-gold inline-flex items-center gap-2 px-7 py-3 text-sm no-underline" style="display:none" download>
+      <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+      </svg>
+      Download video
+    </a>
+    <p id="statsText" class="mt-4 text-xs font-manrope text-graphite/55 whitespace-pre-wrap"></p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ WHY ═════════════════════════════════════════ -->
+<section class="bg-white border-t border-slate py-16 px-4" aria-label="How it works">
+  <div class="max-w-5xl mx-auto">
+    <h2 class="font-sora font-extrabold text-2xl md:text-3xl text-navy text-center mb-3">How video removal works</h2>
+    <p class="font-manrope text-graphite/65 text-center max-w-2xl mx-auto mb-10">
+      The same reverse alpha-blending engine that powers the image tool, applied frame by frame — with
+      calibration that is still being refined for video.
+    </p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="feature-card bg-soft-bg rounded-2xl p-6 border border-slate">
+        <div class="w-11 h-11 rounded-xl bg-navy flex items-center justify-center mb-4">
+          <svg width="20" height="20" fill="none" stroke="#F4B400" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </div>
+        <h3 class="font-poppins font-semibold text-base text-navy mb-2">Frame by frame</h3>
+        <p class="font-manrope text-sm text-graphite/70">Your clip is split into frames, each frame is cleaned with the same algorithm the image tool uses, then the clip is rebuilt.</p>
+      </div>
+      <div class="feature-card bg-soft-bg rounded-2xl p-6 border border-slate">
+        <div class="w-11 h-11 rounded-xl bg-navy flex items-center justify-center mb-4">
+          <svg width="20" height="20" fill="none" stroke="#F4B400" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19V6l12-3v13M9 19a3 3 0 11-6 0 3 3 0 016 0zm12-3a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        </div>
+        <h3 class="font-poppins font-semibold text-base text-navy mb-2">Audio untouched</h3>
+        <p class="font-manrope text-sm text-graphite/70">The audio track is copied straight across without being decoded or re-encoded, so it stays exactly as it was and stays in sync.</p>
+      </div>
+      <div class="feature-card bg-soft-bg rounded-2xl p-6 border border-slate">
+        <div class="w-11 h-11 rounded-xl bg-navy flex items-center justify-center mb-4">
+          <svg width="20" height="20" fill="none" stroke="#F4B400" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+        </div>
+        <h3 class="font-poppins font-semibold text-base text-navy mb-2">Nothing is uploaded</h3>
+        <p class="font-manrope text-sm text-graphite/70">There is no server step. Your video is read, processed and written back entirely inside this browser tab.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ FOOTER ══════════════════════════════════════ -->
+<footer class="bg-navy text-white pt-16 pb-8 px-4 mt-auto" aria-label="Site footer">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+      <!-- Brand -->
+      <div class="sm:col-span-2">
+        <a href="./index.html" class="flex items-center gap-2.5 no-underline mb-4" aria-label="Gemini AI Watermark Remover Home">
+          <div style="width:38px;height:38px;background:#F4B400;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B3C5D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/>
+              <polyline points="21 15 16 10 5 21"/><line x1="18" y1="6" x2="6" y2="18" stroke="#0B3C5D" stroke-width="1.5" stroke-dasharray="2 2"/>
+            </svg>
+          </div>
+          <div style="display:flex;flex-direction:column;line-height:1;">
+            <span style="font-family:'Sora',sans-serif;font-weight:800;font-size:16px;letter-spacing:-0.3px;color:#fff;">Gemini <span style="color:#F4B400;">AI</span></span>
+            <span style="font-family:'Poppins',sans-serif;font-weight:500;font-size:9px;letter-spacing:.6px;color:rgba(255,255,255,0.6);text-transform:uppercase;margin-top:1px;">Watermark Remover</span>
+          </div>
+        </a>
+        <p class="text-white/50 text-sm font-manrope leading-relaxed max-w-xs mb-4">
+          Free, instant Gemini AI watermark removal for images. Video removal is in beta and experimental. 100% browser-based.
+        </p>
+        <p class="text-white/25 text-xs font-manrope">For educational and personal use only. Not affiliated with Google or Gemini.</p>
+      </div>
+
+      <!-- Tool -->
+      <div>
+        <h6 class="font-poppins font-semibold text-white/70 text-sm mb-4 tracking-wide uppercase">Tool</h6>
+        <ul class="space-y-2 text-sm text-white/40 font-manrope">
+          <li><a href="./index.html"   class="hover:text-gold transition-colors">Watermark Remover</a></li>
+          <li><a href="./video.html"   class="hover:text-gold transition-colors">Video Remover (Beta)</a></li>
+          <li><a href="./help.html"    class="hover:text-gold transition-colors">How to Use</a></li>
+          <li><a href="./about.html"   class="hover:text-gold transition-colors">About</a></li>
+        </ul>
+      </div>
+
+      <!-- Legal -->
+      <div>
+        <h6 class="font-poppins font-semibold text-white/70 text-sm mb-4 tracking-wide uppercase">Legal</h6>
+        <ul class="space-y-2 text-sm text-white/40 font-manrope">
+          <li><a href="./terms.html"   class="hover:text-gold transition-colors">Terms of Use</a></li>
+          <li><a href="./privacy.html" class="hover:text-gold transition-colors">Privacy Policy</a></li>
+          <li><a href="./contact.html" class="hover:text-gold transition-colors">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <p class="text-white/25 text-sm font-manrope">© 2025 GeminiAIWatermarkRemover.com · All rights reserved.</p>
+      <p class="text-white/20 text-xs font-manrope">Not affiliated with Google LLC or Google Gemini.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="./videoApp.js"></script>
+</body>
+</html>

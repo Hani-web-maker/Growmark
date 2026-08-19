@@ -119,6 +119,14 @@
     /* ── Hero ── */
     .hero-gradient { background:linear-gradient(135deg,#0B3C5D 0%,#0B3C5D 45%,#1F5A7A 80%,#0d4a73 100%); }
 
+    /* ── Tool tabs (Images | Videos) ── */
+    .gm-tabs { display:inline-flex; gap:4px; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.18); border-radius:14px; padding:4px; }
+    .gm-tab { display:inline-flex; align-items:center; gap:7px; font-family:'Poppins',sans-serif; font-weight:600; font-size:14px; padding:8px 18px; border-radius:10px; color:rgba(255,255,255,.72); text-decoration:none; transition:background .18s,color .18s; }
+    .gm-tab:hover { color:#fff; background:rgba(255,255,255,.09); }
+    .gm-tab.is-active { background:#F4B400; color:#0B3C5D; }
+    .gm-tab-beta { font-size:9px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; padding:2px 6px; border-radius:5px; background:rgba(244,180,0,.22); color:#FFD34D; }
+    .gm-tab.is-active .gm-tab-beta { background:rgba(11,60,93,.18); color:#0B3C5D; }
+
     /* ── Upload Area ── */
     #uploadArea {
       border:2px dashed #D9DEE7; border-radius:16px;
@@ -296,6 +304,16 @@
     <p class="font-manrope text-white/75 text-lg md:text-xl max-w-2xl mx-auto mb-10 fade-up-3">
       Remove the Gemini watermark from your AI-generated images in seconds — without reducing image quality or requiring any editing skills. Everything runs privately inside your browser. No uploads, no sign-ups, no servers.
     </p>
+
+    <!-- Tool tabs -->
+    <div class="mb-8">
+      <div class="gm-tabs" role="tablist" aria-label="Choose tool">
+        <a href="./index.html" class="gm-tab is-active" role="tab" aria-selected="true" aria-current="page">Images</a>
+        <a href="./video.html" class="gm-tab" role="tab" aria-selected="false">
+          Videos <span class="gm-tab-beta">Beta</span>
+        </a>
+      </div>
+    </div>
 
     <!-- Upload Card -->
     <div class="bg-white/5 border border-white/15 rounded-2xl p-3 max-w-3xl mx-auto backdrop-blur-sm">
@@ -1172,6 +1190,7 @@
         <h6 class="font-poppins font-semibold text-white/70 text-sm mb-4 tracking-wide uppercase">Tool</h6>
         <ul class="space-y-2 text-sm text-white/40 font-manrope">
           <li><a href="./index.html"   class="hover:text-gold transition-colors">Watermark Remover</a></li>
+          <li><a href="./video.html"   class="hover:text-gold transition-colors">Video Remover (Beta)</a></li>
           <li><a href="./help.html"    class="hover:text-gold transition-colors">How to Use</a></li>
           <li><a href="./about.html"   class="hover:text-gold transition-colors">About</a></li>
         </ul>
