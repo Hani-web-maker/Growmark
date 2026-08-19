@@ -62,8 +62,11 @@ async function build() {
   console.log(`\n  Building Growmark (${isProd ? 'production' : 'development'})…\n`);
 
   const result = await esbuild.build({
-    entryPoints: [path.join(SRC, 'app.js')],
-    outfile: path.join(DOCS, 'app.js'),
+    entryPoints: [
+      path.join(SRC, 'app.js'),
+      path.join(SRC, 'videoApp.js'),   // dev-video.html — internal harness, noindex
+    ],
+    outdir: DOCS,
     bundle: true,
     platform: 'browser',
     format: 'iife',
@@ -80,20 +83,20 @@ async function build() {
     logLevel: 'info',
   });
 
-  // Print bundle sizes
-  const appJs = path.join(DOCS, 'app.js');
-  const bytes  = fs.statSync(appJs).size;
-  const kb     = (bytes / 1024).toFixed(1);
-  console.log(`\n  ✓ docs/app.js  ${kb} kB`);
+  // Print bundle sizes and verify no import statements remain
+  for (const name of ['app.js', 'videoApp.js']) {
+    const outPath = path.join(DOCS, name);
+    const kb = (fs.statSync(outPath).size / 1024).toFixed(1);
+    console.log(`\n  ✓ docs/${name}  ${kb} kB`);
 
-  // Verify no import statements remain
-  const content = fs.readFileSync(appJs, 'utf8');
-  const hasImports = /^\s*(import|export)\s/m.test(content);
-  if (hasImports) {
-    console.error('\n  ✗ Bundle still contains import/export statements!');
-    process.exit(1);
-  } else {
-    console.log('  ✓ No import/export statements — bundle is self-contained');
+    const content = fs.readFileSync(outPath, 'utf8');
+    const hasImports = /^\s*(import|export)\s/m.test(content);
+    if (hasImports) {
+      console.error(`\n  ✗ ${name} still contains import/export statements!`);
+      process.exit(1);
+    } else {
+      console.log(`  ✓ ${name}: no import/export statements — bundle is self-contained`);
+    }
   }
 
   console.log(`\n  🚀 Build complete → docs/\n`);
